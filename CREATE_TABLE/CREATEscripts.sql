@@ -13,16 +13,7 @@ CREATE TABLE Events (
 		 Event_Description varchar(100),
 		 Event_Contact_Info varchar(50)		
        );
-	   
-CREATE TABLE Likes (
-         Likes_ID int,
-		 Likes_Type varchar(50),		 
-         Likes_Count int,
-		 FOREIGN KEY (Likes_ID) REFERENCES Users(User_ID),
-		 FOREIGN KEY (Likes_Type) REFERENCES Events(Event_ID)	
-       );
 
-	   
 CREATE TABLE Organizations (
          Org_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
          Org_Name varchar(50),
