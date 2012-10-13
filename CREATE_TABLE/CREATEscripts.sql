@@ -1,7 +1,8 @@
 CREATE TABLE Users (
          User_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
          User_Email VARCHAR(50),
-		 User_Password VARCHAR(15)
+		 User_Password VARCHAR(15),
+		 User_IsOrg bit
        );
 
 CREATE TABLE Events (
@@ -23,5 +24,7 @@ CREATE TABLE Organizations (
 		 Org_Num_Of_Ratings int,
 		 Org_Rating_Total int,
 		 Org_Description varchar(100),
-		 Org_Contact_Info varchar(50)		
-       );	   
+		 Org_Contact_Info varchar(50),
+		 Org_UserEmail varchar(50),
+		 FOREIGN KEY (Org_UserEmail) REFERENCES Users(User_Email)
+       );		   
