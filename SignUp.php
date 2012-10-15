@@ -64,6 +64,7 @@
 						
 		
 						echo "Thanks for signing up!!";
+										
 		
 					}
 
@@ -98,6 +99,8 @@
 								mysql_query($sql2);
 		
 								echo "Thanks for signing up!!";
+								
+								header("location: Login.php");
 		
 							}
 					}
@@ -137,6 +140,8 @@
 								mysql_query($sql2);
 		
 								echo "Thanks for signing up!!";
+								
+								header("location: Login.php");
 		
 							}
 					}
