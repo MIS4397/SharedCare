@@ -1,0 +1,203 @@
+<! doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Apple Icon -->
+<link rel="apple-touch-icon" sizes="114x114" href="images/splash/splash-icon.png">
+<!-- Loading Screen -->
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+<!-- A Way to get people to download an App
+<meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
+
+ 
+ <title>Organization Dashboard</title>
+<!-- jQuery Mobile CSS --> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<!-- Template Css -->
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="style/buttons.css" rel="stylesheet" type="text/css">
+<link href="style/photoswipe.css" rel="stylesheet" type="text/css">
+<link href="style/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" rel="stylesheet" />
+<link href="style/add2home.css" rel="stylesheet" type="text/css">
+ 
+ 
+<!-- jQuery and jQuery mobile scripts --> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<!-- template script -->
+<script src="scripts/klass.min.js"></script>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/touchSwipe.js"></script>
+<script src="scripts/photoswipe.js"></script>
+<script src="scripts/roundabout.js"></script>
+<script src="scripts/contact.js"></script>
+<script src="scripts/retina.js"></script>
+<script src="scripts/add2home.js"></script>
+<script src="scripts/custom.js"></script>
+
+</head> 
+
+
+
+
+<body onload="touchScroll('scrollMe');">
+
+
+<!--*************** Organization Org Dashboard Page **************-->
+<div data-role="page" id="orgDash">
+<div class="content" id="PageContent">
+	<div class="header">
+		<a href="#" class="deploy-nav header-icon"></a>
+		<a href="#" class="hide-nav header-icon-active"></a>
+		<h1 class="page-title">Share Care</h1>
+	</div>	
+	<div class="header-notification">
+		<p class="center-text">You have recieved __ new leads since you last logged in</p>
+	</div>	
+		
+<!-- Org Dash Content -->
+<div data-role="content">
+		<h1 class="center-text" style="font-size:2em;" id="orgDashName"> Organization Dashboard<br/>
+			<img src="defaultProf.png"></img>
+		</h1>
+		
+		
+		<div>
+		<div class="container">
+			<table cellspacing='0' class='table'>
+				<tr>
+					<th class="table-title" style="text-align:center;">EVENTS</th>
+					<th class="table-title">RATING</th>
+					<th class="table-title">LEADS</th>
+				</tr>
+				
+				<tr>
+					<td id="eventNum" class="table-sub-title">5</td>
+					<td id="raty" class="table-sub-title">Plugin</td>
+					<td id="leadNum" class="table-sub-title">8</td>
+				</tr>
+			</table>
+		</div>
+		</div>
+		<div class="decoration"></div>
+<!-- Your Events Table pulled from mySQL -->
+		
+		<div class="container">
+			<table cellspacing=0 class='table'>
+				<tr class="topRow"><th class="topRow">
+					<h2 id="orgDashTitle"> Your Events: </h2>
+					<a href="#" data-role="button" data-icon="plus" data-iconpos="notext" id="orgDashAddButton" onclick="prompt('hello');"></a>
+				</th></tr>
+				<!-- Div To insert table html from PHP --> 
+				<div id="insertOrgEvents">
+				
+				
+					<tr>
+					<td id="eventList">
+					<form action="javascript:alert('success');">
+						<p id="eventTableDate"><em> 08/09/2012</em></p>
+						<img src="defaultProf.png" id="eventTablePic"></img>
+						<p id="eventTableHd">Food Bank Event</p>
+						<p id="eventTableDesc"> this is an event to helppeople ocme together in the spirit of helping others. We will be meeting early in the morning to show you how much you can influence somebodies life. We try to tell you a story of our people but you rrefuse to listen because you only have 350 in your pocket<a href="index.html">.....</a></p>
+						<input name='gloria' type='hidden' value='ORG_UNIQUE_ID' hidden>
+					</form>
+					</td>
+					</tr>
+				
+					
+					
+					<tr>
+					<td id="eventList">
+					<form action="javascript:alert('success');">
+						<p id="eventTableDate"><em> 08/09/2012</em></p>
+						<img src="defaultProf.png" id="eventTablePic"></img>
+						<p id="eventTableHd">Food Bank Event</p>
+						<p id="eventTableDesc"> this is an event to helppeople ocme together in the spirit of helping others. We will be meeting early in the morning to show you how much you can influence somebodies life. We try to tell you a story of our people but you rrefuse to listen because you only have 350 in your pocket<a href="index.html">.....</a></p>
+						<input name='gloria' type='hidden' value='ORG_UNIQUE_ID' hidden>
+					</form>
+					</td>
+					</tr>
+					
+					<tr>
+					<td >
+					<form action="javascript:alert('success');">
+						<p id="eventTableDate"><em> 08/09/2012</em></p>
+						<img src="defaultProf.png" id="eventTablePic"></img>
+						<p id="eventTableHd">Food Bank Event</p>
+						<p id="eventTableDesc"> this is an event to helppeople ocme together in the spirit of helping others. We will be meeting early in the morning to show you how much you can influence somebodies life. We try to tell you a story of our people but you rrefuse to listen because you only have 350 in your pocket<a href="index.html">.....</a></p>
+						<input name='gloria' type='hidden' value='ORG_UNIQUE_ID' hidden>
+					</form>
+					</td>
+					</tr>
+					
+				</div>
+				
+					<tr>
+					<td>
+						<form action='javascript:alert("get more events");'>
+						<p id="eventTableHd">Click Here to get more events....</p>
+						</form>
+					</td>
+					</tr>
+			</table>
+			<!-- END OF TABLE --> 
+			<!-- Script for making all the td clickable and able to post to next page-->
+			<script>
+					$('td').click(function(){$(this).find('form').submit();});
+			</script>
+		</div>
+		
+		
+</div>
+		
+</div>
+
+<!-- Begining of SideBar for org Dash -->
+<div class="sidebar">
+	<div class="sidebar-hide-scroll" id="scrollMe">
+	<div class="sidebar-header">
+	<!-- Side Bar Title must change for every page --> 
+		<h1 class="sidebar-title">Organizations</h1>
+    </div>
+	
+    <p class="sidebar-divider no-top">
+    	Organization Menu
+    </p>
+	
+		<a class="menu-item menu-icon home" href="#home">HOME<em></em></a>
+		<a class="menu-item menu-icon alert3" id="sub-menu-one" href="feat.html">EDIT PROFILE<strong></strong></a>
+		<a class="menu-item menu-icon img" id="sub-menu-two" href="#">EDIT EVENTS<strong></strong></a>
+		<a class="menu-item menu-icon mail last-menu-item" href="contact.html">ADD AN EVENT<em></em></a>
+
+	
+	<!-- Social Media --> 
+    <p class="sidebar-divider">
+    	TELL A FRIEND
+    </p>
+	
+	
+		<a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
+		<a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
+ 	
+	<!-- Note to user --> 
+    <p class="sidebar-divider">
+    	TAP THE CONTENT TO CLOSE
+    </p>
+    </div>
+</div>
+
+
+
+
+</div>
+<!-- **************** End of Org Dashboard Page ************** --> 
+
+
+
+
+
+</body>
+
+
+</html>

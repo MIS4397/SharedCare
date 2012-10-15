@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Apple Icon -->
+<link rel="apple-touch-icon" sizes="114x114" href="images/splash/splash-icon.png">
+<!-- Loading Screen -->
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+<!-- A Way to get people to download an App
+<meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
+
+ 
+ <title>ShareCare</title>
+<!-- jQuery Mobile CSS --> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<!-- Template Css -->
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="style/buttons.css" rel="stylesheet" type="text/css">
+<link href="style/photoswipe.css" rel="stylesheet" type="text/css">
+<link href="style/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" rel="stylesheet" />
+<link href="style/add2home.css" rel="stylesheet" type="text/css">
+ 
+ 
+<!-- jQuery and jQuery mobile scripts --> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<!-- template script -->
+<script src="scripts/klass.min.js"></script>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/touchSwipe.js"></script>
+<script src="scripts/photoswipe.js"></script>
+<script src="scripts/roundabout.js"></script>
+<script src="scripts/contact.js"></script>
+<script src="scripts/retina.js"></script>
+<script src="scripts/add2home.js"></script>
+<script src="scripts/custom.js"></script>
+
+</head> 
+
+
+<body onload="touchScroll('scrollMe')">
+
+<!-- ****************Home/Landing Page ***********************--> 
+
+<div data-role="page" id="home">
+<div class="content" id="PageContent">
+<div class="header">
+	<a href="#" class="deploy-nav header-icon"></a>
+	<a href="#" class="hide-nav header-icon-active"></a>
+	<h1 class="page-title">Share Care</h1>
+	<a href="signUp.html" class="contact-icon header-icon"></a>
+	<!-- Only works in data-role="header" <a href="" class="ui-btn-right"> Log in</a>--> 
+</div>
+<!-- Header Notification, goes away after 10seconds -->
+<div class="header-notification">
+	<p class="center-text">This is a Quick message to all the haters out there</p>
+</div>
+
+
+<!--CONTENT OF HOME PAGE --> 
+<div data-role="content">
+	<div style="text-align: center;">
+		<!-- LogoText -->
+		<p class="center-text"><img src="sharecare.png" alt="img" class="replace-2x logo"></p>
+		<h4 class="center-text slider-heading-one">The Volunteer App</h4>
+	</div>
+		<p class="center-text slider-heading-three">ShareCare is the fastest growing volunteer app in the nation! Log in or sign up today to get started with finding volunteer opportunities around you. Research Company, Research Events, review and comment, and connect with people that share your interest for caring!</p>
+		
+		
+			<a href="orgDash.html" data-role="button" data-theme="c" data-ajax="false"> Get Started Today!</a>
+			<a href="#logInForm" data-role="button" data-rel="dialog" data-theme="e"> Log In </a>
+		
+		
+		<!--CopyRight Code--> 
+		<p class="center-text copyright">Copyright 2012. All rights reserved</p>
+		
+		
+
+</div>
+
+
+</div>
+
+<!-- SIDE BAR --> 
+<div class="sidebar">
+	<div class="sidebar-hide-scroll" id="scrollMe">
+	<div class="sidebar-header">
+	<!-- Side Bar Title must change for every page --> 
+		<h1 class="sidebar-title">HOME</h1>
+    </div>
+	
+    <p class="sidebar-divider no-top">
+    	NAVIGATION
+    </p>
+	
+    <a class="menu-item menu-icon home" href="#home">HOME<em></em></a>
+    <a class="menu-item menu-icon alert3" id="sub-menu-one" href="userHome.html" data-ajax="false">EVENTS<strong></strong></a>
+	<!-- Sub Menu --> 
+    	<div class="sub-menu-one">
+        	<a href="type.html" class="sub-menu-item">Randomize</a>
+        </div>
+    <a class="menu-item menu-icon img" href="userHome.html" data-ajax="false">ORGANIZATIONS<strong></strong></a>
+    <a class="menu-item menu-icon mail last-menu-item" href="contact.html">CONTACT<em></em></a>
+	
+	<!-- Social Media --> 
+    <p class="sidebar-divider">
+    	TELL A FRIEND
+    </p>
+	
+	
+    <a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
+    <a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
+ 	
+	<!-- Note to user --> 
+    <p class="sidebar-divider">
+    	TAP THE CONTENT TO CLOSE
+    </p>
+    </div>
+</div>
+
+
+</div>
+<!-- ****************END OF HOME PAGE ************************-->
+
+
+
+
+
+
+
+<!---- ************ Start of Log In Dialog ******************* --> 
+<div data-role="page" id="logInForm">
+	<div data-role="header">
+		<h1 class="page-title"> ShareCare Log In </h1>
+	</div>
+	<div data-role="content">
+		<p class='slider-heading-three center-text'>The Volunteer App is at your finger tips, all you have to do is log in!</p>
+		<form id="logIn">
+			<input class='login' name="username" type="text" placeholder="Email:">
+			<input class='login' name="password" type="password" placeholder="Password:">
+		<input type="button" value="Log in" onclick="alert('users will be directed to the user page, and orgs will be directed to the org dash');">
+		
+		</form>
+	</div>
+	
+	
+</div>
+<!-- *************** End of Dialog ************************** --> 
+
+</body>
+</html>
