@@ -161,13 +161,16 @@ h4{	font-size:12px; padding-bottom:5px; font-family:'Lato', sans-serif; color:#4
 
 
 .content{
-	position:absolute;
+	position:relative;
 	width:100%;
 	display:block;
 	z-index:999;
 	left:0px;
 	right:0px;
+	top:0px;
+	bottom:0px;
 	background-image:url(../images/bg/body.png);
+	background-repeat:repeat;
 }
 
 /*Sidebar*/
@@ -195,7 +198,7 @@ h4{	font-size:12px; padding-bottom:5px; font-family:'Lato', sans-serif; color:#4
 	z-index:99;
 	left:0px;
 	top:0px;
-	bottom:0px;
+	bottom: 0px;
 	width:180px;
 }
 
@@ -1332,9 +1335,6 @@ label#message_label{
 	padding:5px;
 }
 
-#PageContent{
-	height:100%;
-}
 
 #orgDashTitle{
 	float:left;

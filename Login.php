@@ -22,11 +22,11 @@
 			
 				if($isOrg==true)
 				{
-					header("location: OrgDashboard.php");
+					header("location: orgDash.html");
 				}
 				else
 				{
-					header("location: EventsList.php");
+					header("location: userHome.html");
 				}
 		}
 		else
@@ -35,11 +35,3 @@
 		}
 	}
 ?>
-
-<form action="" method="post">
-<label>Email Address :</label>
-<input type="text" name="username"/><br />
-<label>Password :</label>
-<input type="password" name="password"/><br/>
-<input type="submit" value=" Submit "/><br />
-</form>

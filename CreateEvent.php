@@ -1,10 +1,13 @@
 <?php
-	include("config.php");
+	include("orgLock.php");
 	session_start();
 		
+
+
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-			// Event info from form is gathered here
+			// Event info from form is gathered here 
+			echo $test;
 			$myeventname=addslashes($_POST['eventname']);
 			$myeventdate=addslashes($_POST['eventdate']);
 			$mylocation=addslashes($_POST['location']);
@@ -16,7 +19,8 @@
 			$mystoptime=addslashes($_POST['eventstop']);
 			$myeventtype=addslashes($_POST['eventtype']);
 			$myeventcomments=addslashes($_POST['comments']);
-			$myorgname='TEST';	//$_SESSION['orgName']; PUT THIS IN ONCE REDIRECTING FROM ORG DASHBOARD
+			$myorgname= $org_name;	//org_name is in the orgLock
+			//$_SESSION['orgName']; PUT THIS IN ONCE REDIRECTING FROM ORG DASHBOARD
 			
 				if(($myeventname != '' && $myeventdate != '' && $mycontactname != '') || ($myeventname !=null && $myeventdate != null && $mycontactname != null)) //Are all required fields filled out?
 				{
@@ -63,7 +67,7 @@
 						mysql_query($sql2);
 						
 		
-						echo "Thanks for adding your event!!";
+						header("Location: orgSuccess.html");
 		
 					}
 
@@ -77,32 +81,3 @@
 	
 
 ?>
-
-<form name="" action="" method="post">
-<input hidden name="checkVal" value="">
-<label>Enter your Event Name :</label>
-<input type="text" name="eventname"/><br />
-<label>Date of your event(YYYY-MM-DD):</label>
-<input type="text" name="eventdate"/><br />
-<label >Event Description :</label>
-<input type="text" name="eventdesc"/><br />
-<label >Event Type :</label>
-<input type="text" name="eventtype"/><br/>
-<label >Start Time :</label>
-<input type="text" name="eventstart"/><br />
-<label >End Time :</label>
-<input type="text" name="eventstop"/><br />
-<label >Contact Name :</label>
-<input type="text" name="contactname"/><br />
-<label >Contact Phone :</label>
-<input type="text" name="contactphone"/><br />
-<label >Contact Email :</label>
-<input type="text" name="contactemail"/><br />
-<label >Location :</label>
-<textarea name="location"></textarea><br/>
-<label >Comments :</label>
-<textarea name="comments"></textarea><br/>
-
-
-<input type="submit" value=" Submit "/><br />
-</form>

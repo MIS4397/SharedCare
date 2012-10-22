@@ -1,3 +1,6 @@
+<?php
+include('lock.php');
+?>
 <!doctype html>
 <html>
 <head>
@@ -60,23 +63,66 @@
 	
 	<!--CONTENT OF HOME PAGE --> 
 	<div data-role="content">
-		<h1 class="center-text" style="font-size:2em;" id="orgDashName">Don't Know what you are looking for, Try Out The Random Button!</h1><br/>
+		<h1 class="center-text" style="font-size:2em;" id="orgDashName">Welcome <?php echo $login_session; ?></h1><br/>
 		
 		<div class="decoration"></div>
 		
 		
 		<div class="random-detected">
-			<a data-role="none" class="button green" href="RandomEventPage.php"><img class="button-icon" src="images/icons/shuffle@2x.png"></img><em></em><strong>Random Button</strong></a>
+			<a data-role="none" class="button green" href="javascript:history.go(-1);"><img class="button-icon" src="images/icons/shuffle@2x.png"></img><em> Don't Press This</em><strong>Random</strong></a>
 		</div>
 		
 		
 		<div class="decoration"></div>
 		
 		<div class="container">
-			<table data-role="none" class='table' id="eventsTable">
+			<table data-role="none" cellspacing=0 class='table'>
 				<tr data-role="none"><th data-role="none" class="topRow">
 					<h2 id="orgDashTitle">Upcoming Events:</h2>
 				</th></tr>
+				<!-- Div To insert table html from PHP --> 
+				<div id="insertOrgEvents">
+				
+				
+					<tr>
+					<td id="eventList">
+					<form action="javascript:alert('success');">
+						<p id="eventTableDate"><em> 08/09/2012</em></p>
+						<img src="defaultProf.png" id="eventTablePic"></img>
+						<p id="eventTableHd">Food Bank Event</p>
+						<p id="eventTableDesc"> this is an event to helppeople ocme together in the spirit of helping others. We will be meeting early in the morning to show you how much you can influence somebodies life. We try to tell you a story of our people but you rrefuse to listen because you only have 350 in your pocket<a href="index.html">.....</a></p>
+						<input name='gloria' type='hidden' value='ORG_UNIQUE_ID' hidden>
+					</form>
+					</td>
+					</tr>
+				
+					
+					
+					<tr>
+					<td id="eventList">
+					<form action="javascript:alert('success');">
+						<p id="eventTableDate"><em> 08/09/2012</em></p>
+						<img src="defaultProf.png" id="eventTablePic"></img>
+						<p id="eventTableHd">Food Bank Event</p>
+						<p id="eventTableDesc"> this is an event to helppeople ocme together in the spirit of helping others. We will be meeting early in the morning to show you how much you can influence somebodies life. We try to tell you a story of our people but you rrefuse to listen because you only have 350 in your pocket<a href="index.html">.....</a></p>
+						<input name='gloria' type='hidden' value='ORG_UNIQUE_ID' hidden>
+					</form>
+					</td>
+					</tr>
+					
+					<tr>
+					<td >
+					<form action="javascript:alert('success');">
+						<p id="eventTableDate"><em> 08/09/2012</em></p>
+						<img src="defaultProf.png" id="eventTablePic"></img>
+						<p id="eventTableHd">Food Bank Event</p>
+						<p id="eventTableDesc"> this is an event to helppeople ocme together in the spirit of helping others. We will be meeting early in the morning to show you how much you can influence somebodies life. We try to tell you a story of our people but you rrefuse to listen because you only have 350 in your pocket<a href="index.html">.....</a></p>
+						<input name='gloria' type='hidden' value='ORG_UNIQUE_ID' hidden>
+					</form>
+					</td>
+					</tr>
+					
+				</div>
 				
 					<tr>
 					<td>
@@ -87,6 +133,14 @@
 					</tr>
 			</table>
 			<!-- END OF TABLE --> 
+			<!-- Script for making all the td clickable and able to post to next page-->
+			<script>
+					$(function(){$('a').removeClass('ui-link');});
+					
+					$('td').click(function(){$(this).find('form').submit();});
+					
+					
+			</script>
 		</div>
 		
 		
@@ -110,10 +164,10 @@
     	NAVIGATION
     </p>
 	
-    <a class="menu-item menu-icon home" href="userHome.html" data-ajax="false">HOME<em></em></a>
-	<a class="menu-item menu-icon home" href="orgList.html" data-ajax="false">ORGANIZATIONS<em></em></a>
-    <a class="menu-item menu-icon alert3" id="sub-menu-one" href="EventList.html" data-ajax="false">EVENTS<strong></strong></a>
-    <a class="menu-item menu-icon mail last-menu-item" href="mailto:jp.ramirezpra@gmail.com">CONTACT<em></em></a>
+    <a class="menu-item menu-icon home" href="#home" data-ajax="false">ORGANIZATIONS<em></em></a>
+    <a class="menu-item menu-icon alert3" id="sub-menu-one" href="feat.html" data-ajax="false">EVENTS<strong></strong></a>
+    <a class="menu-item menu-icon mail last-menu-item" href="contact.html" data-ajax="false">CONTACT<em></em></a>
+	<a class="menu-item menu-icon mail last-menu-item" href="Logout.php" data-ajax="false">LOG OUT<em></em></a>
 	
 	<!-- Social Media --> 
     <p class="sidebar-divider">
@@ -130,45 +184,9 @@
     </p>
     </div>
 </div>
-<script language="javascript">
 
-
-$(popList());
-
-function popList(){
-
-$.post('userHomeEventList.php', function(text, status){
-			var b = text.split("<hr>");
-			console.log(b.length-1);
-			for(x=0; x<6; x++){
-				$('#eventsTable tr:last').before(b[x]);
-			}
-		});
-		
-
-setTimeout(function() {
-		$('td').click(function(){$(this).find('form').submit();});
-		$('a').removeClass('ui-link');
-	}, 2000);
-}
-
-
-/*
-
-
-
-		
-
-
-});
-
-		
-
-			
-	*/				
-					
-
-</script>
+	
+	
 	
 	
 </div>

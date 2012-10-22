@@ -1,4 +1,11 @@
-<!doctype html> 
+<?php
+	include("config.php");
+	session_start();
+	
+	$sql = "SELECT * FROM Events ORDER BY RAND() LIMIT 0,1";
+	$result = mysql_query($sql);
+?>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -57,34 +64,33 @@
 <div data-role="content">
 	<div class="center-div">
 		<img src="defaultProf.png" class="float">
-		<h1 class="mainTitle"> Event Name </h1>
-		<h2 class="subTitle"> Organization Name </h2>
-		<p > 12211 Brook Meadows Lane
-		<br/> 				 Stafford, Texas, 77041</p> 
+		<h1 class="mainTitle"> <?php echo mysql_result($result, 0,"Event_Name");?> </h1>
+		<h2 class="subTitle"> <?php echo mysql_result($result, 0,"Event_OrgName");?> </h2>
+		<p > <?php echo mysql_result($result, 0,"Event_Location");?>
 	</div>
 
+		<div>
+			<a data-role="none" class="button green" href="javascript:history.go(0)"><img class="button-icon" src="images/icons/shuffle@2x.png"> </img><em></em><strong>AGAIN!</strong></a>
+		</div>
 
 <div class="decoration"></div>
 	
 <div data-role='collapsible'>
-	<h1> Requirements </h1>
-	<p><ul>Must be over 18 hours</br>
-		   Must have a background check</br>
-		   Must be willing to stand for long periods of time</p>
+	<h1> type </h1>
+	<p><ul><?php echo mysql_result($result, 0,"Event_Type");?>
 
 </div>
 
 <div data-role='collapsible'>
 	<h1> Contact Information </h1>
-	<p><ul>Reyna Luna Gutierrez</br>
-		Project Manager<br/>
-		Phone: (477)-765-8923<br/>
-		Email: rey.lun.gut@nonprof.com</p>	
+	<p><ul><?php echo mysql_result($result, 0,"Event_ContactName");?></br>
+		<?php echo mysql_result($result, 0,"Event_ContactPhone");?><br/>
+		<?php echo mysql_result($result, 0,"Event_ContactEmail");?></p>	
 </div>
 
 <div data-role='collapsible'>
 	<h1> Summary </h1>
-	<p><ul>This will be a great event where members will go out and help little children achieve their dreams. By singing songs like R Kelly's I believe I can fly and show kids that MJ truly is better than LeBron we can change the world for the better. Special screening of SPace Jam.</p>	
+	<p><?php echo mysql_result($result, 0,"Event_Description");?>
 </div>
 
 

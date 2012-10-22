@@ -59,7 +59,7 @@
 	 <div class="decoration"></div>
 	 
 <!-- Sign up form-->
-	 <form action="index.html" 	method="post">
+	 <form data-ajax="false" action="SignUp.php" 	method="post">
 			<div data-role = "fieldcontain">
 				<input type="text" name="username" placeholder="Email:">
 			</div>
@@ -73,8 +73,8 @@
 			<div data-role="fieldcontain">
 				<label for="orgBool"> Are you an Organization:</label>
 				<select name="orgBool" id="orgBool" data-role="slider" onchange="$('#orgForm').toggle();" >
-					<option value="off">Yes</option>
-					<option value="on">No</option>
+					<option value="off">No</option>
+					<option value="on" selected>Yes</option>
 				</select>
 			</div>
 <!--RADIO ORG MEM SELECTION -->
@@ -83,28 +83,37 @@
 <!-- Org Section of Sign up form -->
 
 			<div data-role="fieldcontain">
-				<input type="text" name="orgNameForm"  placeholder="Organization Name">
+				<input type="text" name="orgname"  placeholder="Organization Name">
 			</div>
 			
 			<div data-role="fieldcontain">
-				<input type="text" name="websiteForm"  placeholder="Website URL">
+				<input type="text" name="website"  placeholder="Website URL">
 			</div>
 			
 			<div data-role="fieldcontain">
-				<textarea name="requirForm" placeholder="Requirements"></textarea> 
+				<textarea name="orglocation" placeholder="Organization Address:"></textarea>
 			</div>
 			
 			<div data-role="fieldcontain">
-				<input type="text" name="missionForm" placeholder="Mission">
+				<textarea name="contactname" placeholder="Contact Name"></textarea>
 			</div>
 			
 			<div data-role="fieldcontain">
-				<textarea name="descriptionForm" placeholder="Description"></textarea>
+				<textarea name="contactphone" placeholder="Contact Phone Number:"></textarea>
 			</div>
 			
 			<div data-role="fieldcontain">
-				<textarea name="orgConatactInfoForm" placeholder="Contact Information"></textarea>
+				<textarea name="contactemail" placeholder="Contact Email:"></textarea>
 			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="requirements" placeholder="Requirements"></textarea> 
+			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="description" placeholder="Description"></textarea>
+			</div>
+			
 </div>
 
 			
@@ -112,7 +121,7 @@
 			<!-- Place to enter the Error Messages, use jQuery to toggle --> 
 			<div class="notification-box-red" hidden>
 				<img class="notification-icon" width="16" src="images/lists/delete_32.png" alt="">
-				<p class="notification-text">ErrorMessage</p>
+				<p class="notification-text" id="errorMessage" >ErrorMessage</p>
 			</div>
 			
 			<div data-role = "fieldcontain">
@@ -163,10 +172,6 @@
 </div> <!-- End of Sidebar -->
 </div>
 <!-- **********************END OF SIGN UP PAGE******************* --> 	
-
-
-
-
 
 
 

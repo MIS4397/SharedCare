@@ -1,5 +1,8 @@
 <?php
+
+	//Used to get Information about organization to display on the Organization Dashboard, i.e. ID, NAME, LEADS, etc.
 	include("config.php");
+	include("orgLock.php");
 	session_start();
 	$myusername=$_SESSION['login_user'];
 		
@@ -17,8 +20,8 @@
 		$orgMission=mysql_result($result,0,"Org_Mission");
 		$orgLeads=mysql_result($result,0,"Org_LeadCount");
 		$orgType=mysql_result($result,0,"Org_Type");
+		$orgDesc=mysql_result($result,0,"Org_Desc");
 
-		echo "<b>$orgName"."<br>"."$orgWebsite</b><br>$orgLocation<br>$orgCN<hr><br>"; //WE CAN FORMAT THIS TO PRINT AS PRETTY AS WE WANT
-
-
+		echo "$orgID,$orgName,$orgWebsite,$orgLocation,$orgCN,$orgLeads"; //WE CAN FORMAT THIS TO PRINT AS PRETTY AS WE WANT
+		
 ?>

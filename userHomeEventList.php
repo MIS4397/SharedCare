@@ -1,12 +1,10 @@
 <?php
 	include("config.php");
-	include("orgLock.php");
+	include("lock.php");
 	session_start();
 	$myusername=$_SESSION['login_user'];
 	
-	$org_name = $_GET['id'];
-	
-	$sql="SELECT * FROM Events WHERE Event_OrgName = '$org_name'";   //STILL NEEDS DATE LOGIC AND FEATURED LOGIC
+	$sql="SELECT * FROM Events";   //STILL NEEDS DATE LOGIC AND FEATURED LOGIC
 	$result=mysql_query($sql);
 	
 	$num=mysql_numrows($result);//GRABS NUMBER OF ROWS

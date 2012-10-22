@@ -1,4 +1,5 @@
-<!doctype html>
+
+<! doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -11,15 +12,15 @@
 <meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
 
  
- <title>Welcome!</title>
+ <title>Organization Dashboard</title>
+<!-- jQuery Mobile CSS --> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 <!-- Template Css -->
 <link href="style/style.css" rel="stylesheet" type="text/css">
 <link href="style/buttons.css" rel="stylesheet" type="text/css">
 <link href="style/photoswipe.css" rel="stylesheet" type="text/css">
 <link href="style/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" rel="stylesheet" />
 <link href="style/add2home.css" rel="stylesheet" type="text/css">
-<!-- jQuery Mobile CSS --> 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
  
  
 <!-- jQuery and jQuery mobile scripts --> 
@@ -39,43 +40,28 @@
 </head> 
 
 
-<body onload="touchScroll(scrollMe);">
-
-<!-- *********************** User Home Page ******************--> 
 
 
-<div data-role="page">
-<div class="content" >
+<body onload="touchScroll('scrollMe');">
 
+
+<!--*************** Organization Org Dashboard Page **************-->
+<div data-role="page" id="orgDash">
+<div class="content" id="PageContent">
 	<div class="header">
 		<a href="#" class="deploy-nav header-icon"></a>
 		<a href="#" class="hide-nav header-icon-active"></a>
-		<h1 class="page-title">User Home Page</h1>
-	</div>
-	
-	<!-- Header Notification, goes away after 10seconds -->
-	<div class="header-notification">
-		<p class="center-text">__ number of Events Have been added this week</p>
-	</div>
-	
-	<!--CONTENT OF HOME PAGE --> 
-	<div data-role="content">
-		<h1 class="center-text" style="font-size:2em;" id="orgDashName">Don't Know what you are looking for, Try Out The Random Button!</h1><br/>
+		<h1 class="page-title">Share Care</h1>
+	</div>	
 		
-		<div class="decoration"></div>
+<!-- Org Dash Content -->
+<div data-role="content">
+<!-- Your Events Table pulled from mySQL -->
 		
-		
-		<div class="random-detected">
-			<a data-role="none" class="button green" href="RandomEventPage.php"><img class="button-icon" src="images/icons/shuffle@2x.png"></img><em></em><strong>Random Button</strong></a>
-		</div>
-		
-		
-		<div class="decoration"></div>
-		
-		<div class="container">
-			<table data-role="none" class='table' id="eventsTable">
-				<tr data-role="none"><th data-role="none" class="topRow">
-					<h2 id="orgDashTitle">Upcoming Events:</h2>
+		<div class="container" >
+			<table cellspacing=0 class='table' id='eventList'>
+				<tr class="topRow"><th class="topRow">
+					<h2 id="orgDashTitle"> </h2>
 				</th></tr>
 				
 					<tr>
@@ -87,33 +73,31 @@
 					</tr>
 			</table>
 			<!-- END OF TABLE --> 
+			<!-- Script for making all the td clickable and able to post to next page-->
 		</div>
 		
 		
+</div>
 		
-		
-	</div>
-	
-	
-	</div>
+</div>
 
-
-<!-- SIDE BAR --> 
+<!-- Begining of SideBar for org Dash -->
 <div class="sidebar">
 	<div class="sidebar-hide-scroll" id="scrollMe">
 	<div class="sidebar-header">
 	<!-- Side Bar Title must change for every page --> 
-		<h1 class="sidebar-title">UserHome</h1>
+		<h1 class="sidebar-title">Organizations</h1>
     </div>
 	
     <p class="sidebar-divider no-top">
-    	NAVIGATION
+    	Organization Menu
     </p>
 	
-    <a class="menu-item menu-icon home" href="userHome.html" data-ajax="false">HOME<em></em></a>
-	<a class="menu-item menu-icon home" href="orgList.html" data-ajax="false">ORGANIZATIONS<em></em></a>
-    <a class="menu-item menu-icon alert3" id="sub-menu-one" href="EventList.html" data-ajax="false">EVENTS<strong></strong></a>
-    <a class="menu-item menu-icon mail last-menu-item" href="mailto:jp.ramirezpra@gmail.com">CONTACT<em></em></a>
+		<a class="menu-item menu-icon home" href="orgDash.html" data-ajax="false">HOME<em></em></a>
+		<a class="menu-item menu-icon alert3" href="EditOrgProfile.php" data-ajax="false">EDIT PROFILE<strong></strong></a>
+		<a class="menu-item menu-icon img" href="EventListPage.html" data-ajax="false">EDIT EVENTS<strong></strong></a>
+		<a class="menu-item menu-icon mail last-menu-item" href="addEvent.html" data-ajax="false">ADD AN EVENT<em></em></a>
+
 	
 	<!-- Social Media --> 
     <p class="sidebar-divider">
@@ -121,8 +105,8 @@
     </p>
 	
 	
-    <a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
-    <a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
+		<a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
+		<a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
  	
 	<!-- Note to user --> 
     <p class="sidebar-divider">
@@ -130,48 +114,64 @@
     </p>
     </div>
 </div>
+
+
+
+
+</div>
+<!-- **************** End of Org Dashboard Page ************** --> 
 <script language="javascript">
+//This function is jQuery AJAX to get the Org Info from the Database
 
 
-$(popList());
 
-function popList(){
+$(document).ready(popHeader());
+$('td').click(function(){$(this).find('form').submit();});
 
-$.post('userHomeEventList.php', function(text, status){
+function popHeader(){
+
+	var org_name;
+
+	$.post('OrgDashboard.php', function(responseText, status){
+		var a = responseText.split(",");
+		console.log(a);
+		$("#orgDashTitle").html(a[1]);
+		org_name = a[1];
+		$.get("EventsList.php?id="+org_name, function(text, status){
 			var b = text.split("<hr>");
 			console.log(b.length-1);
-			for(x=0; x<6; x++){
-				$('#eventsTable tr:last').before(b[x]);
+			for(x=0; x<b.length; x++){
+			$('#eventList tr:last').before(b[x]);
 			}
-		});
-		
-
-setTimeout(function() {
+		})
+	});
+	
+	setTimeout(function() {
 		$('td').click(function(){$(this).find('form').submit();});
-		$('a').removeClass('ui-link');
 	}, 2000);
+	
+	//popList();
 }
-
-
 /*
-
-
-
-		
-
-
-});
-
-		
-
-			
-	*/				
-					
-
-</script>
+function popList(){
 	
+	org_name = $("#orgDashName").html();
+	console.log(org_name);
+	$.get('EventsList.php?id='+org_name, function(responseText, status){
+	var b = responseText.split(",");
+	console.log(b);
+	})
 	
-</div>
+	$('#eventList tr:last').before('<tr><td>Hello</td></tr>');
+}
+*/
 
-</body> 
+</script> 
+
+
+
+
+</body>
+
+
 </html>

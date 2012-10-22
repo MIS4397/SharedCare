@@ -1,4 +1,15 @@
-<!doctype html>
+<?php
+	include("config.php");
+	include("orgLock.php");
+	session_start();
+	
+	$myOrgName = $org_name;
+	
+	$sql = "SELECT * FROM Organizations WHERE Org_Name = '$myOrgName'";
+	$result = mysql_query($sql);
+	echo $myOrgName;
+?>
+	
 <html>
 <head>
 <meta charset="utf-8">
@@ -11,7 +22,7 @@
 <meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
 
  
- <title>Organization Profile</title>
+ <title>Profile Edit</title>
 <!-- jQuery Mobile CSS --> 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 <!-- Template Css -->
@@ -38,14 +49,14 @@
 
 </head> 
 
-<body onload="touchScroll(scrollMe);">
+<body onload="touchScroll('scrollMe');">
 <!-- ****************Organization List***********************--> 
 
 <div data-role="page" id="orgList">
 <div class="content" id="PageContent">
 <div class="header">
 	<a href="javascript: history.go(-1);" class="backbutton-nav header-icon"></a>
-	<h1 class="page-title">Organization List</h1> 
+	<h1 class="page-title">Edit your Profile</h1> 
 </div>
 <!-- Header Notification, goes away after 10seconds -->
 <div class="header-notification">
@@ -55,74 +66,51 @@
 
 <!--CONTENT OF HOME PAGE --> 
 <div data-role="content">
-	<div class="center-div"> 
-		<img src="defaultProf.png" class="float">
-		<h1 class="mainTitle"> Organization Name </h1>
-		<p class="subTitile"> 12211 Brook Meadows Lane
-		<br/>				 Stafford, Texas, 77041</p>
-		<p> Url: <a href="www.myurl.com"> www.myurl.com</a> </p>
-		<p> Tel: (713)-409-1652 </p>
+
+<form action="UpdateOrg.php" method="post">
+	<input type="hidden" name="org_id" value='<?php echo mysql_result($result,0,"Org_ID");?>'>
+	<div data-role = "fieldcontain">
+		<label for="name">Organization Name:</label></br>
+		<input type="text" name="orgname" value='<?php echo mysql_result($result, 0,"Org_Name");?>'>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="address">Address:</label><br/>
+		<input type="text" name="address" value='<?php echo mysql_result($result, 0,"Org_Location");?>'>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="website">Website:</label><br/>
+		<input type="url" name="website" value='<?php echo mysql_result($result, 0,"Org_Website");?>'>
+	</div>			
+	<div data-role="fieldcontain">
+		<label for="requirements">Requirements</label><br/>
+		<textarea name="requirements" value='<?php echo mysql_result($result, 0,"Org_Requirements");?>'></textarea> 
+	</div>	
+	<div data-role="fieldcontain">
+		<label for="">Description</label><br/>
+		<textarea name="descriptionForm" value='<?php echo mysql_result($result, 0,"Org_ContactEmail");?>'></textarea>
+	</div>
+	<div data-role="fieldcontain">
+		<label for='contactname' >Contact Name :</label></br>
+		<input type="text" name="contactname" value='<?php echo mysql_result($result, 0,"Org_ContactName");?>'/><br />
+	</div>
+	<div data-role="fieldcontain">
+		<label for="contactphone" >Contact Phone :</label></br>
+		<input type="text" name="contactphone" value='<?php echo mysql_result($result, 0,"Org_ContactPhone");?>'/><br />
+	</div>
+	<div data-role="fieldcontain">
+		<label for="contactemail">Contact Email :</label></br>
+		<input type="email" name="contactemail" value='<?php echo mysql_result($result, 0,"Org_ContactEmail");?>'/><br />
+	</div>
+	
+	<div data-role = "fieldcontain">
+		<input type="submit" value="Update">
 	</div>
 
-	<div class="decoration"></div>
-	
-	<div class="column-three-one center-text">
-		<h3> Upcoming Events </h3>
-		<h4> 12 </h4>
-	</div>
-	
-	<div class="column-three-two">
-		<div class="random-detected">
-			<a data-role="none" class="button yellow" href="javascript:history.go(-1);"><img id="heartOrg" class="button-icon" src="images/lists/heart_48.png"></img><em> Click to like Organization</em><strong>Press it!</strong></a>
-		</div>
-	</div>
-	
-	<div class="column-three-three center-text">
-		<h3> Total Likes </h3>
-		<h4> 56 </h4>
-	</div>
-	
-	
-	
-	<div class="clear">
-		<h2> Decription: </h2>
-		<textarea disabled>This is the description of the organization in the aformentioned place holder, I knew that onLIve would go out of businesss back in the '10. their startegy was just not thought out there was way to many resources needed in order to give peole something that was not up to what they already had</textarea>
-		
-		<div class="decoration"></div>
-		
-		
-			
 
-		
-		<div class="container">
-			<h3 class="left-text text-space">General Requirements</h3>
-			<div class="toggle">
-				<a href="#" data-role="none" class="toggle-deploy">Click to Expand</a>
-				<a href="#" data-role="none" class="toggle-close">Click to Hide</a>
-					<ul class="toggle-content">
-						<li> Requirement #1
-						<li> Requirement #2
-						<li> Requirement #3
-						<li> Requirement #4
-					</ul>
-			</div>
-		</div>
-		
-		<div class="column-two-one">
-			<a href="mailto:jp.ramirezpra@gmail.com" data-role="button"> Contact Us </a>
-		</div>
-		<div class="column-two-two">
-			<form action="javascript: alert('success');" method="post">
-			<a onclick="submit();" data-role="button"> Events </a>
-			</form>
-		</div>
-			
-		
-		
-		
-	</div>
-	 
+</form>
 
+	
+	
 
 
 </div>
