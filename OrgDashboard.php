@@ -22,6 +22,6 @@
 		$orgType=mysql_result($result,0,"Org_Type");
 		$orgDesc=mysql_result($result,0,"Org_Desc");
 
-		echo "$orgID,$orgName,$orgWebsite,$orgLocation,$orgCN,$orgLeads"; //WE CAN FORMAT THIS TO PRINT AS PRETTY AS WE WANT
+		echo "$orgID**$orgName**$orgWebsite**$orgLocation**$orgCN**$orgLeads"; //WE CAN FORMAT THIS TO PRINT AS PRETTY AS WE WANT
 		
 ?>

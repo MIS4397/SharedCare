@@ -13,7 +13,7 @@
 	while ($i < $num) //GETS CURRENT ROW IN TABLE AND MAKES SURE WE GO THROUGH ALL RECORDS
 	{
 		echo "<tr><td id='eventList'>";
-		echo "<form action='EditEvent.php' method='POST'>";
+		echo "<form action='userEventProf.php' method='POST'>";
 		echo "<p id='eventTableDate'>".mysql_result($result,$i,"Event_Date")."</p>";
 		echo "<img src='defaultProf.png' id='eventTablePic'></img>";
 		echo "<p id='eventTableHd'>".mysql_result($result,$i,"Event_Name")."</p>";

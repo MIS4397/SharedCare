@@ -64,7 +64,7 @@
 		<div class="decoration"></div>
 		
 		
-<form data-ajax="false" id="editEventForm" name="addEvent" action="CreateEvent.php" method="post" style="overflow:scroll; height:60%;">
+<form data-ajax="false" id="editEventForm" name="addEvent" action="CreateEvent.php" method="post">
 <div data-role="fieldcontain">
 		<label for="eventname">Name of Event:</label></br>
 		<input type="text" name="eventname" placeholder="ex. Beach Cleanup, Food Bank, etc."/><br />
@@ -161,10 +161,10 @@
 
 $(document).ready(
 	$.post('OrgDashboard.php', function(responseText, status){
-		var a = responseText.split(",");
+		var a = responseText.split("**");
 		console.log(a);
 		$("#orgDashName").html(a[1]);
-		$("#orgDashInfo").html(a[2]+"<br>"+a[3] + " " +a[4]);
+		$("#orgDashInfo").html(a[2]+"<br>"+a[3]);
 }));
 
 

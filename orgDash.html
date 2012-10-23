@@ -165,11 +165,11 @@ function popHeader(){
 	var org_name;
 
 	$.post('OrgDashboard.php', function(responseText, status){
-		var a = responseText.split(",");
+		var a = responseText.split("**");
 		console.log(a);
 		$("#orgDashName").html(a[1]);
 		org_name = a[1];
-		$("#orgDashInfo").html(a[2]+"<br>"+a[3] + " " +a[4]);
+		$("#orgDashInfo").html(a[2]+"<br>"+a[3]);
 		$("#leadNum").html(a[5]);
 		$.get("EventsList.php?id="+org_name, function(text, status){
 			var b = text.split("<hr>");

@@ -1,15 +1,16 @@
 <?php
 	include("config.php");
-	include("orgLock.php");
+	include("lock.php");
 	session_start();
 	
-	$myOrgName = $org_name;
+	$orgID = $_POST["org_id"];
 	
-	$sql = "SELECT * FROM Organizations WHERE Org_Name = '$myOrgName'";
+	$sql = "SELECT * FROM Organizations WHERE  Org_ID = '$orgID'";
 	$result = mysql_query($sql);
 	echo $myOrgName;
 ?>
-	
+
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -22,7 +23,7 @@
 <meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
 
  
- <title>Profile Edit</title>
+ <title>Organization Profile</title>
 <!-- jQuery Mobile CSS --> 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 <!-- Template Css -->
@@ -49,76 +50,83 @@
 
 </head> 
 
-<body onload="touchScroll('scrollMe');">
+<body onload="touchScroll(scrollMe);">
 <!-- ****************Organization List***********************--> 
 
 <div data-role="page" id="orgList">
 <div class="content" id="PageContent">
 <div class="header">
 	<a href="javascript: history.go(-1);" class="backbutton-nav header-icon"></a>
-	<h1 class="page-title">Edit your Profile</h1> 
+	<h1 class="page-title">Organization Profile</h1> 
 </div>
 <!-- Header Notification, goes away after 10seconds -->
-<div class="header-notification">
-	<p class="center-text">__ Organizations Have joined this year</p>
-</div>
 
 
 <!--CONTENT OF HOME PAGE --> 
 <div data-role="content">
-
-<form action="UpdateOrg.php" method="post">
-	<input type="hidden" name="org_id" value='<?php echo mysql_result($result,0,"Org_ID");?>'>
-	<div data-role = "fieldcontain">
-		<label for="name">Organization Name:</label></br>
-		<input type="text" name="orgname" value='<?php echo mysql_result($result, 0,"Org_Name");?>'>
-	</div>
-	<div data-role="fieldcontain">
-		<label for="address">Address:</label><br/>
-		<input type="text" name="address" value='<?php echo mysql_result($result, 0,"Org_Location");?>'>
-	</div>
-	<div data-role="fieldcontain">
-		<label for="website">Website:</label><br/>
-		<input type="url" name="website" value='<?php echo mysql_result($result, 0,"Org_Website");?>'>
-	</div>			
-	<div data-role="fieldcontain">
-		<label for="requirements">Requirements</label><br/>
-		<textarea name="requirements"><?php echo mysql_result($result, 0,"Org_Requirements");?></textarea> 
-	</div>	
-	<div data-role="fieldcontain">
-		<label for="">Description</label><br/>
-		<textarea name="descriptionForm"><?php echo mysql_result($result, 0,"Org_Desc");?></textarea>
-	</div>
-	<div data-role="fieldcontain">
-		<label for='contactname' >Contact Name :</label></br>
-		<input type="text" name="contactname" value='<?php echo mysql_result($result, 0,"Org_ContactName");?>'/><br />
-	</div>
-	<div data-role="fieldcontain">
-		<label for="contactphone" >Contact Phone :</label></br>
-		<input type="text" name="contactphone" value='<?php echo mysql_result($result, 0,"Org_ContactPhone");?>'/><br />
-	</div>
-	<div data-role="fieldcontain">
-		<label for="contactemail">Contact Email :</label></br>
-		<input type="email" name="contactemail" value='<?php echo mysql_result($result, 0,"Org_ContactEmail");?>'/><br />
+	<center><div class="center-div"> 
+		<img src="defaultProf.png" class="float">
+		<h1 class="mainTitle"><?php echo mysql_result($result,0,"Org_Name");?></h1>
+		<p class="subTitile">
+		<?php echo mysql_result($result, 0,"Org_Location");?>
+		</p>
+		<p> Url: <a href="<?php echo mysql_result($result, 0,"Org_Website");?>"><?php echo mysql_result($result, 0,"Org_Website");?></a></p>
+	</div></center>
+<br/>
+<br/>
+<br/>
+	<div class="decoration"></div>
+	<!-- Profile Dashboard -->
+	<div class="column-three-one center-text">
+		<h3> Upcoming Events </h3>
+		<h4><?php echo mysql_result($result, 0,"Org_LeadCount");?></h4>
 	</div>
 	
-	<div data-role = "fieldcontain">
-		<input type="submit" value="Update">
+	<div class="column-three-two">
+		<div class="random-detected">
+			<a data-role="none" class="button yellow" href="javascript:history.go(-1);"><img id="buttonIcon" class="button-icon" src="images/lists/heart_48.png"></img><em> Click to like Organization</em><strong>Press it!</strong></a>
+		</div>
 	</div>
-
-
-</form>
-
+	
+	<div class="column-three-three center-text">
+		<h3> Total Likes </h3>
+		<h4> 56 </h4>
+	</div>
 	
 	
+	<!-- description --> 
+	<div class="clear">
+		<h2> Decription: </h2>
+		<textarea disabled><?php echo mysql_result($result, 0,"Org_Desc");?></textarea>
+		
+		<div class="decoration"></div>
+		
+		
+			
 
-
+		
+		<div class="container">
+			<h3 class="left-text text-space">General Requirements</h3>
+			<div class="toggle">
+				<a href="#" data-role="none" class="toggle-deploy">Click to Expand</a>
+				<a href="#" data-role="none" class="toggle-close">Click to Hide</a>
+					<ul class="toggle-content">
+					<?php echo mysql_result($result, 0,"Org_Requirements");?>
+					</ul>
+			</div>
+		</div>
+		
+		<div class="column-two-one">
+			<a href="mailto:<?php echo mysql_result($result, 0,"Org_ContactEmail");?>" data-role="button"> Contact Us </a>
+		</div>
+		<div class="column-two-two">
+			<form action="javascript: alert('success');" method="post">
+			<a onclick="submit();" data-role="button"> Events </a>
+			</form>
+		</div>			
+	</div>
 </div>
-
-
 </div>
-
-
 </div>
 <!-- ****************END OF HOME PAGE ************************-->
 

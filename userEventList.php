@@ -50,22 +50,13 @@
 	<div class="header">
 		<a href="#" class="deploy-nav header-icon"></a>
 		<a href="#" class="hide-nav header-icon-active"></a>
-		<h1 class="page-title">User Home Page</h1>
+		<h1 class="page-title">Event List</h1>
 	</div>
+	<!-- Header Notification, goes away after 10seconds -->
+	
 	
 	<!--CONTENT OF HOME PAGE --> 
 	<div data-role="content">
-		<h1 class="center-text" style="font-size:2em;" id="orgDashName">Don't Know what you are looking for, Try Out The Random Button!</h1><br/>
-		
-		<div class="decoration"></div>
-		
-		
-		<div class="random-detected">
-			<a data-role="none" class="button green" href="RandomEventPage.php"><img class="button-icon" src="images/icons/shuffle@2x.png"></img><em></em><strong>Random Button</strong></a>
-		</div>
-		
-		
-		<div class="decoration"></div>
 		
 		<div class="container">
 			<table data-role="none" class='table' id="eventsTable">
@@ -107,7 +98,7 @@
 	
     <a class="menu-item menu-icon home" href="userHome.html" data-ajax="false">HOME<em></em></a>
 	<a class="menu-item menu-icon home" href="orgList.html" data-ajax="false">ORGANIZATIONS<em></em></a>
-    <a class="menu-item menu-icon alert3" href="userEventList.php" data-ajax="false">EVENTS<strong></strong></a>
+    <a class="menu-item menu-icon alert3" href="#" data-ajax="false">EVENTS<strong></strong></a>
     <a class="menu-item menu-icon mail last-menu-item" href="mailto:jp.ramirezpra@gmail.com">CONTACT<em></em></a>
 	
 	<!-- Social Media --> 

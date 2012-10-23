@@ -52,8 +52,8 @@
 
 
 <!--*************** Organization Org Dashboard Page **************-->
-<div data-role="page" id="orgDash" >
-<div class="content" id="PageContent">
+<div data-role="page">
+<div class="content">
 	<div class="header">
 		<a href="#" class="deploy-nav header-icon"></a>
 		<a href="#" class="hide-nav header-icon-active"></a>
@@ -107,11 +107,11 @@
 </div>
 <div data-role="fieldcontain">
 		<label for="location">Location :</label></br>
-		<textarea name="location" value='<?php echo mysql_result($result, 0,"Event_Location");?>'></textarea><br/>
+		<textarea name="location"><?php echo mysql_result($result, 0,"Event_Location");?></textarea><br/>
 </div>
 <div data-role="fieldcontain">
 		<label for="comments" >Comments :</label></br>
-		<textarea name="comments" value='<?php echo mysql_result($result, 0,"Event_Comments");?>'></textarea><br/>
+		<textarea name="comments"><?php echo mysql_result($result, 0,"Event_Comments");?></textarea><br/>
 </div>
 		<input type="hidden" name='event_id'  value='<?php echo $myeventID?>' hidden>
 		<input type="submit" value="Submit"/><br />

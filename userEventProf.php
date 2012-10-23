@@ -1,11 +1,15 @@
 <?php
 	include("config.php");
+	include("lock.php");
 	session_start();
 	
-	$sql = "SELECT * FROM Events ORDER BY RAND() LIMIT 0,1";
+	$eventID = $_POST["event_id"];
+	
+	$sql = "SELECT * FROM Events WHERE Event_ID = '$eventID'";
 	$result = mysql_query($sql);
 ?>
 
+<!doctype html> 
 <html>
 <head>
 <meta charset="utf-8">
@@ -53,51 +57,44 @@
 
 <div class="header">
 	<a href="javascript: history.go(-1);" class="backbutton-nav header-icon"></a>
-	<h1 class="page-title">Event Search</h1> 
+	<h1 class="page-title">Event Profile</h1> 
 </div>
 
-<!-- Header Notification, goes away after 10seconds -->
-<div class="header-notification">
-	<p class="center-text">___ number of events have been added to the database</p>
-</div>
 
 <div data-role="content">
 	<div class="center-div">
 		<img src="defaultProf.png" class="float">
-		<h1 class="mainTitle"> <?php echo mysql_result($result, 0,"Event_Name");?> </h1>
-		<h2 class="subTitle"> <?php echo mysql_result($result, 0,"Event_OrgName");?> </h2>
-		<p > <?php echo mysql_result($result, 0,"Event_Location");?>
+		<h1 class="mainTitle"><?php echo mysql_result($result, 0,"Event_Name");?> </h1>
+		<h2 class="subTitle"><?php echo mysql_result($result, 0,"Event_OrgName");?></h2>
+		<p > <?php echo mysql_result($result, 0,"Event_Location");?></p> 
 	</div>
 
-		<div>
-			<a data-role="none" class="button green" href="javascript:history.go(0)"><img class="button-icon" src="images/icons/shuffle@2x.png"> </img><em></em><strong>AGAIN!</strong></a>
-		</div>
-
-<div class="decoration"></div>
+<br/>
+<br/>
+<div style='clear:both;' class="decoration"></div>
 	
 <div data-role='collapsible'>
-	<h1> type </h1>
-	<p><ul><?php echo mysql_result($result, 0,"Event_Type");?>
+	<h1> Description</h1>
+	<p><?php echo mysql_result($result, 0,"Event_Description");?></p>
 
 </div>
 
 <div data-role='collapsible'>
 	<h1> Contact Information </h1>
 	<p><ul><?php echo mysql_result($result, 0,"Event_ContactName");?></br>
-		<?php echo mysql_result($result, 0,"Event_ContactPhone");?><br/>
-		<?php echo mysql_result($result, 0,"Event_ContactEmail");?></p>	
+		Phone: <?php echo mysql_result($result, 0,"Event_ContactPhone");?><br/>
+		Email: <?php echo mysql_result($result, 0,"Event_ContactEmail");?></p>	
 </div>
 
 <div data-role='collapsible'>
 	<h1> Summary </h1>
-	<p><?php echo mysql_result($result, 0,"Event_Description");?>
+	<p>Start Time: <?php echo mysql_result($result, 0,"Event_StartTime");?></br>End Time: <?php echo mysql_result($result, 0,"Event_EndTime");?>
+	</br>Date: <?php echo mysql_result($result, 0,"Event_Date");?>
+	</p>	
 </div>
-
-
-
-<iframe width="425" height="350" frameborder="0" scrolling="no" style="margin-left:90px; margin-bottom: 30px;" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=community+service+houston&amp;aq=&amp;sll=31.168934,-100.076842&amp;sspn=13.122599,23.269043&amp;ie=UTF8&amp;hq=community+service&amp;hnear=Houston,+Harris,+Texas&amp;t=m&amp;fll=29.72667,-95.381241&amp;fspn=0.0521,0.090895&amp;st=110949415103031623905&amp;rq=1&amp;ev=zi&amp;split=1&amp;ll=29.758906,-95.448171&amp;spn=0.0521,0.090895&amp;output=embed"></iframe><br />
-
-<div class="center-div">
+<br/>
+<br/>
+<div class="center-div" style="clear:both;">
 <div data-role="none" class="random-detected two-column-one">
 			<a data-role="none" class="button yellow" href="javascript:history.go(-1);"><img id='buttonIcon' class="button-icon" src="images/lists/heart_48.png"></img><em> Click to like Organization</em><strong>Press it!</strong></a>
 </div>
