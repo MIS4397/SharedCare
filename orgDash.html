@@ -1,164 +1,78 @@
-
-<! doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <!-- Apple Icon -->
-<link rel="apple-touch-icon" sizes="114x114" href="images/splash/splash-icon.png">
+	<link rel="apple-touch-icon" size="114x114" href="images/splash-icon.png">
 <!-- Loading Screen -->
-<link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
-<!-- A Way to get people to download an App
-<meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
-
- 
- <title>Organization Dashboard</title>
-<!-- jQuery Mobile CSS --> 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
-<!-- Template Css -->
-<link href="style/style.css" rel="stylesheet" type="text/css">
-<link href="style/buttons.css" rel="stylesheet" type="text/css">
-<link href="style/photoswipe.css" rel="stylesheet" type="text/css">
-<link href="style/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" rel="stylesheet" />
-<link href="style/add2home.css" rel="stylesheet" type="text/css">
- 
- 
+	<link rel="apple-touch-startup-image" href="images/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
 <!-- jQuery and jQuery mobile scripts --> 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-<!-- template script -->
-<script src="scripts/klass.min.js"></script>
-<script src="scripts/jquery.js"></script>
-<script src="scripts/touchSwipe.js"></script>
-<script src="scripts/photoswipe.js"></script>
-<script src="scripts/roundabout.js"></script>
-<script src="scripts/contact.js"></script>
-<script src="scripts/retina.js"></script>
-<script src="scripts/add2home.js"></script>
-<script src="scripts/custom.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<!-- Additional Script and Styles -->
+	<script type="text/javascript" src="js/menuScript.js"></script>
+	<link rel="stylesheet" href="style/mainStyle.css"/>
+</head>
+<body>
+<!--- MENU -->
+<div id="menu">
+<h3>Organization Home</h3>
+	<ul>
+		<li class="active"><a href="#" class="contentLink"  >Home</a></li>
+		<li><a href="EditOrgProfile.html" class="contentLink" >Edit Profile </a></li>
+		<li><a href="EventListPage.html" class="contentLink" >Edit Events </a></li>
+		<li><a href="addEvent.html" class="contentLink" >Add an Event </a></li>
+	</ul>
+</div>
 
-</head> 
+<!--- PAGE -->
+<div data-role="page" class="pages" id="orgDash">
+	<div data-role="header" data-theme="b">
+		<a href="#" class="showMenu" data-ajax="false">Menu</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>&nbsp;&nbsp;DashBoard</h1>
+	</div><!-- /header -->
 
-
-
-
-<body onload="touchScroll('scrollMe');">
-
-
-<!--*************** Organization Org Dashboard Page **************-->
-<div data-role="page" id="orgDash" style="overflow: scroll; height: 100%;">
-<div class="content">
-	<div class="header">
-		<a href="#" class="deploy-nav header-icon"></a>
-		<a href="#" class="hide-nav header-icon-active"></a>
-		<h1 class="page-title">Share Care</h1>
-	</div>	
-	<div class="header-notification">
-		<p class="center-text">You have recieved __ new leads since you last logged in</p>
-	</div>	
-		
-<!-- Org Dash Content -->
-<div data-role="content">
-		<h1 class="center-text" style="font-size:2em;" id="orgDashName"> Organization Dashboard<br/>
-		</h1>
-		<p class="center-text" id="orgDashInfo"> This is the address </p>
-		<center><img src="defaultProf.png"></img></center>
+	
+	<div data-role="content">
+		<div style="text-align: center;">
+			<img src="images/defaultProf.png">
+			<h2 id="orgDashName">Organization Dashboard</h2>
+			<h4 id="orgDashInfo">Organization Address</h4>
+		</div>
 		
 		
-		<div>
-		<div class="container">
-			<table cellspacing='0' class='table'>
+		<table cellspacing='0' class='table'>
 				<tr>
-					<th class="table-title" style="text-align:center;">EVENTS</th>
-					<th  class="table-title">LIKES</th>
-					<th  class="table-title">LEADS</th>
+					<th>EVENTS</th>
+					<th>LEADS</th>
 				</tr>
 				
 				<tr>
-					<td id="eventNum" class="table-sub-title">5</td>
-					<td id="raty" class="table-sub-title">Plugin</td>
-					<td id="leadNum" class="table-sub-title"></td>
+					<td id="eventNum">0</td>
+					<td id="leadNum">0</td>
 				</tr>
-			</table>
-		</div>
-		</div>
-		<div class="decoration"></div>
-<!-- Your Events Table pulled from mySQL -->
+				<tr></tr><!-- for styling purpose-->
+		</table>
 		
-		<div class="container">
-			<table cellspacing=0 class='table' id='eventList'>
-				<tr class="topRow"><th class="topRow">
-					<h2 id="orgDashTitle"> Your Events: </h2>
-					<a href="addEvent.html" data-role="button" data-icon="plus" data-iconpos="notext" id="orgDashAddButton" data-ajax="false"></a>
-				</th></tr> 
-				
-					<tr>
-					<td>
-						<form action='javascript:alert("get more events");'>
-						<p id="eventTableHd">Click Here to get more events....</p>
-						</form>
-					</td>
-					</tr>
-			</table>
-			<!-- END OF TABLE --> 
-			<!-- Script for making all the td clickable and able to post to next page-->
-			<script>
-					
-			</script>
-		</div>
-		
-		
-</div>
-		
-</div>
-
-<!-- Begining of SideBar for org Dash -->
-<div class="sidebar">
-	<div class="sidebar-hide-scroll" id="scrollMe">
-	<div class="sidebar-header">
-	<!-- Side Bar Title must change for every page --> 
-		<h1 class="sidebar-title">Organizations</h1>
-    </div>
-	
-    <p class="sidebar-divider no-top">
-    	Organization Menu
-    </p>
-	
-		<a class="menu-item menu-icon home" href="orgDash.html" data-ajax="false">HOME<em></em></a>
-		<a class="menu-item menu-icon alert3" href="EditOrgProfile.php" data-ajax="false">EDIT PROFILE<strong></strong></a>
-		<a class="menu-item menu-icon img" href="EventListPage.html" data-ajax="false">EDIT EVENTS<strong></strong></a>
-		<a class="menu-item menu-icon mail last-menu-item" href="addEvent.html" data-ajax="false">ADD AN EVENT<em></em></a>
-
-	
-	<!-- Social Media --> 
-    <p class="sidebar-divider">
-    	TELL A FRIEND
-    </p>
-	
-	
-		<a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
-		<a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
- 	
-	<!-- Note to user --> 
-    <p class="sidebar-divider">
-    	TAP THE CONTENT TO CLOSE
-    </p>
-    </div>
-</div>
-
-
-
-
-</div>
-<!-- **************** End of Org Dashboard Page ************** --> 
+		<table id="eventList">
+			<tr><th><h2> Your Upcoming Events: </h2></th></tr>
+			
+			<tr>
+			<td>
+				<p> </p>
+			</td>
+			</tr>
+		</table>
+	</div><!-- /Content -->
+</div><!-- /Page -->
 <script language="javascript">
 //This function is jQuery AJAX to get the Org Info from the Database
-
-
-
 $(document).ready(popHeader());
-$('td').click(function(){$(this).find('form').submit();});
-$(function(){$('a').removeClass('ui-link');});
 
 function popHeader(){
 
@@ -166,12 +80,11 @@ function popHeader(){
 
 	$.post('OrgDashboard.php', function(responseText, status){
 		var a = responseText.split("**");
-		console.log(a);
 		$("#orgDashName").html(a[1]);
-		org_name = a[1];
-		$("#orgDashInfo").html(a[2]+"<br>"+a[3]);
-		$("#leadNum").html(a[5]);
-		$.get("EventsList.php?id="+org_name, function(text, status){
+		org_id = a[0];
+		$("#orgDashInfo").html(a[2]+"<br>"+a[3]+"<br>"+a[4]+", "+a[5]+" "+a[6]);
+		$("#leadNum").html(a[7]);
+		$.get("EventsList.php", function(text, status){
 			var b = text.split("<hr>");
 			console.log(b.length-1);
 			$('#eventNum').text(b.length-1);
@@ -182,31 +95,37 @@ function popHeader(){
 	});
 	
 	setTimeout(function() {
-		$('td').click(function(){$(this).find('form').submit();});
-	}, 2000);
-	
-	//popList();
+		$('td').click(function(){
+			var event_id = $(this).find('div').html();
+			redirectEvent(event_id);
+			
+			});
+	}, 1000);
+		
 }
-/*
-function popList(){
-	
-	org_name = $("#orgDashName").html();
-	console.log(org_name);
-	$.get('EventsList.php?id='+org_name, function(responseText, status){
-	var b = responseText.split(",");
-	console.log(b);
-	})
-	
-	$('#eventList tr:last').before('<tr><td>Hello</td></tr>');
+
+function redirectEvent(event_id){
+	console.log(event_id);
+	$.get('storeEventID.php?event_id='+event_id);
+	window.location = 'EditEvent.html';
+
 }
-*/
+
+/*   ************  CODE FOR ADD EVENT PAGE  ********* */ 
+
+$('#addEvent').live('pageinit', function(event){
+	$.post('OrgDashboard.php', function(responseText, status){
+		var a = responseText.split("**");
+		console.log(a);
+		$("#orgDashNameAdd").html(a[1]);
+		$("#orgDashInfoAdd").html(a[2]+"<br>"+a[3]+"<br>"+a[4]+", "+a[5]+" "+a[6]);
+	});
+});
+
+
+
 
 </script> 
 
-
-
-
 </body>
-
-
 </html>

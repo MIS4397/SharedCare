@@ -1,17 +1,12 @@
 <?php
 include('config.php');
 session_start();
-$user_check=$_SESSION['login_user'];
 
-$ses_sql=mysql_query("select Org_Name, Org_UserEmail from Organizations where Org_UserEmail='$user_check' ");
+$user_check=$_SESSION['user_id'];
 
-$row=mysql_fetch_array($ses_sql);
+$org_id = $_SESSION['org_id'];
 
-$login_session=$row['Org_UserEmail'];
-
-$org_name = $row['Org_Name'];
-
-if(!isset($login_session))
+if(!isset($user_check))
 {
 	header("Location: index.html");
 }
