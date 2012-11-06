@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- Apple Icon -->
+	<link rel="apple-touch-icon" size="114x114" href="images/splash-icon.png">
+<!-- Loading Screen -->
+	<link rel="apple-touch-startup-image" href="images/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+<!-- jQuery and jQuery mobile scripts --> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<!-- Additional Script and Styles -->
+	<script type="text/javascript" src="js/menuScript.js"></script>
+	<link rel="stylesheet" href="style/mainStyle.css"/>
+</head>
+<body>
+<!--- MENU -->
+<div id="menu">
+<h3>Organization Home</h3>
+	<ul>
+		<li class="active"><a href="#" class="contentLink"  >Home</a></li>
+		<li><a href="EditOrgProfile.html" class="contentLink" >Edit Profile </a></li>
+		<li><a href="EventListPage.html" class="contentLink" >Edit Events </a></li>
+		<li><a href="addEvent.html" class="contentLink" >Add an Event </a></li>
+	</ul>
+</div>
+
+<!--- PAGE -->
+<div data-role="page" class="pages" id="orgDash">
+	<div data-role="header" data-theme="b">
+		<a href="#" class="showMenu" data-ajax="false">Menu</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>&nbsp;&nbsp;DashBoard</h1>
+	</div><!-- /header -->
+
+	
+	<div data-role="content">
+		<div style="text-align: center;">
+			<img src="images/defaultProf.png">
+			<h2 id="orgDashName">Organization Dashboard</h2>
+			<h4 id="orgDashInfo">Organization Address</h4>
+		</div>
+		
+		
+		<table cellspacing='0' class='table'>
+				<tr>
+					<th>EVENTS</th>
+					<th>LEADS</th>
+				</tr>
+				
+				<tr>
+					<td id="eventNum">0</td>
+					<td id="leadNum">0</td>
+				</tr>
+				<tr></tr><!-- for styling purpose-->
+		</table>
+		
+		<table id="eventList">
+			<tr><th><h2> Your Upcoming Events: </h2></th></tr>
+			
+			<tr>
+			<td>
+				<p> </p>
+			</td>
+			</tr>
+		</table>
+	</div><!-- /Content -->
+</div><!-- /Page -->
+<script language="javascript">
+//This function is jQuery AJAX to get the Org Info from the Database
+$(document).ready(popHeader());
+
+function popHeader(){
+
+	var org_name;
+
+	$.post('OrgDashboard.php', function(responseText, status){
+		var a = responseText.split("**");
+		$("#orgDashName").html(a[1]);
+		org_id = a[0];
+		$("#orgDashInfo").html(a[2]+"<br>"+a[3]+"<br>"+a[4]+", "+a[5]+" "+a[6]);
+		$("#leadNum").html(a[7]);
+		$.get("EventsList.php", function(text, status){
+			var b = text.split("<hr>");
+			console.log(b.length-1);
+			$('#eventNum').text(b.length-1);
+			for(x=0; x<b.length; x++){
+			$('#eventList tr:last').before(b[x]);
+			}
+		})
+	});
+	
+	setTimeout(function() {
+		$('td').click(function(){
+			var event_id = $(this).find('div').html();
+			redirectEvent(event_id);
+			
+			});
+	}, 1000);
+		
+}
+
+function redirectEvent(event_id){
+	console.log(event_id);
+	$.get('storeEventID.php?event_id='+event_id);
+	window.location = 'EditEvent.html';
+
+}
+
+/*   ************  CODE FOR ADD EVENT PAGE  ********* */ 
+
+$('#addEvent').live('pageinit', function(event){
+	$.post('OrgDashboard.php', function(responseText, status){
+		var a = responseText.split("**");
+		console.log(a);
+		$("#orgDashNameAdd").html(a[1]);
+		$("#orgDashInfoAdd").html(a[2]+"<br>"+a[3]+"<br>"+a[4]+", "+a[5]+" "+a[6]);
+	});
+});
+
+
+
+
+</script> 
+
+</body>
+</html>
