@@ -30,92 +30,89 @@
 	</ul>
 </div><!-- /MENU -->
 
-<!-- PAGE -->
+<!-- ADD EVENT PAGE -->
 <div data-role="page" id="addEvent" >
-<div data-role="header" data-theme="b">
+	<div data-role="header" data-theme="b">
 		<a href="#" class="showMenu" data-ajax="false">Menu</a>
 		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
 		<h1>&nbsp;&nbsp;DashBoard</h1>
-</div><!-- /header -->
+	</div><!-- /header -->
 	
-<!-- Content -->
-<div data-role="content" >
-	<div style="text-align: center;">
-			<img src="images/defaultProf.png">
-			<h2 id="orgDashNameAdd">Organization Dashboard</h2>
-			<h4 id="orgDashInfoAdd">Organization Address</h4>
-	</div>
-	
-	<form action="AddEvent.php" method="post">
-		<div data-role="fieldcontain">
-			<label for="eventname">Name of Event:</label></br>
-			<input type="text" name="eventname" placeholder="ex. Beach Cleanup, Food Bank, etc."/><br />
+<!-- Add Event Content -->
+	<div data-role="content" >
+		<div style="text-align: center;">
+				<img src="images/defaultProf.png">
+				<h2 id="orgDashNameAdd">Organization Dashboard</h2>
+				<h4 id="orgDashInfoAdd">Organization Address</h4>
 		</div>
-		<div data-role="fieldcontain">
-				<label for="evendate">Date of Event</label></br>
-				<input type="date" name="eventdate" placeholder="Date of Event"/><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventdesc">Description</label></br>
-				<input type="text" name="eventdesc" placeholder="Description"/><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventtype">Event Type</label></br>
-				<input type="text" name="eventtype" placeholder="Event Type"/><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventstart">Start Time</label></br>
-				<input type="time" name="eventstart" placeholder="Start Time"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventstop">End Time</label></br>
-				<input type="time" name="eventstop" placeholder="End Time"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for='contactname' >Contact Name :</label></br>
-				<input type="text" name="contactname"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="contactphone" >Contact Phone :</label></br>
-				<input type="text" name="contactphone"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="contactemail">Contact Email :</label></br>
-				<input type="email" name="contactemail"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="address">Address :</label></br>
-				<input type="text" name="address"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="city">City :</label></br>
-				<input type="text" name="city"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="state">State :</label></br>
-				<input type="text" name="state"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="zip">Zip :</label></br>
-				<input type="text" name="zip"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="duties" >Duties :</label></br>
-				<textarea name="duties"></textarea><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="requirements" >Requirements :</label></br>
-				<textarea name="requirements"></textarea><br/>
-		</div>
-		<div data-role = "fieldcontain">
-			<input type="button" value="Add Event" onclick="addEvent()"><br />
-		</div>
-	</form>
-
-
-</div>
-<!--- END OF CONTENT-->		
-</div>
+		
+		<form action="AddEvent.php" method="post">
+			<div data-role="fieldcontain">
+				<label for="eventname">Name of Event:</label></br>
+				<input type="text" name="eventname" placeholder="ex. Beach Cleanup, Food Bank, etc."/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="evendate">Date of Event</label></br>
+					<input type="date" name="eventdate" placeholder="Date of Event"/><br/>
+			</div>
+			<div data-role="fieldcontain">
+					<label for="eventdesc">Description</label></br>
+					<input type="text" name="eventdesc" placeholder="Description"/><br/>
+			</div>
+			<div data-role="fieldcontain">
+					<label for="eventtype">Event Type</label></br>
+					<input type="text" name="eventtype" placeholder="Event Type"/><br/>
+			</div>
+			<div data-role="fieldcontain">
+					<label for="eventstart">Start Time</label></br>
+					<input type="time" name="eventstart" placeholder="Start Time"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="eventstop">End Time</label></br>
+					<input type="time" name="eventstop" placeholder="End Time"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for='contactname' >Contact Name :</label></br>
+					<input type="text" name="contactname"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="contactphone" >Contact Phone :</label></br>
+					<input type="text" name="contactphone"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="contactemail">Contact Email :</label></br>
+					<input type="email" name="contactemail"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="address">Address :</label></br>
+					<input type="text" name="address"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="city">City :</label></br>
+					<input type="text" name="city"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="state">State :</label></br>
+					<input type="text" name="state"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="zip">Zip :</label></br>
+					<input type="text" name="zip"/><br />
+			</div>
+			<div data-role="fieldcontain">
+					<label for="duties" >Duties :</label></br>
+					<textarea name="duties"></textarea><br/>
+			</div>
+			<div data-role="fieldcontain">
+					<label for="requirements" >Requirements :</label></br>
+					<textarea name="requirements"></textarea><br/>
+			</div>
+			<div data-role = "fieldcontain">
+				<input type="button" value="Add Event" onclick="addEvent()"><br />
+			</div>
+		</form>
+	</div><!--  /Add Event Content -->	
+</div><!--  /Add Event Page -->	
 
 <div data-role="dialog" id="Success">
 	<div data-role="header">
