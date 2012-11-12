@@ -1,172 +1,339 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <!-- Apple Icon -->
-<link rel="apple-touch-icon" sizes="114x114" href="images/splash/splash-icon.png">
+	<link rel="apple-touch-icon" size="114x114" href="images/splash-icon.png">
 <!-- Loading Screen -->
-<link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
-<!-- A Way to get people to download an App
-<meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
-
- 
- <title>Welcome!</title>
-<!-- Template Css -->
-<link href="style/style.css" rel="stylesheet" type="text/css">
-<link href="style/buttons.css" rel="stylesheet" type="text/css">
-<link href="style/photoswipe.css" rel="stylesheet" type="text/css">
-<link href="style/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" rel="stylesheet" />
-<link href="style/add2home.css" rel="stylesheet" type="text/css">
-<!-- jQuery Mobile CSS --> 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
- 
- 
+	<link rel="apple-touch-startup-image" href="images/splash-screen.gif"/>
 <!-- jQuery and jQuery mobile scripts --> 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-<!-- template script -->
-<script src="scripts/klass.min.js"></script>
-<script src="scripts/jquery.js"></script>
-<script src="scripts/touchSwipe.js"></script>
-<script src="scripts/photoswipe.js"></script>
-<script src="scripts/roundabout.js"></script>
-<script src="scripts/contact.js"></script>
-<script src="scripts/retina.js"></script>
-<script src="scripts/add2home.js"></script>
-<script src="scripts/custom.js"></script>
-
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<!-- Additional Script and Styles -->
+	<script type="text/javascript" src="js/menuScript.js"></script>
+	<link rel="stylesheet" href="style/mainStyle.css"/>
 </head> 
+<body>
+<!--- MENU -->
+<div id="menu" >
+<h3>ShareCare Menu</h3>
+	<ul>
+		<li class="active"><a href="#userHome" class="contentLink">Home</a></li>
+		<li><a href="#orgList" class="contentLink">Organizations</a></li>
+		<li><a href="#eventsPage" class="contentLink">Events</a></li>
+		<li><a href="#" class="contentLink" >Random Event</a></li>
+	</ul>
+</div>
+
+<!--- ***************************************************
+					START OF USER HOME PAGE
+	  ***************************************************-->
 
 
-<body onload="touchScroll(scrollMe);">
-
-<!-- *********************** User Home Page ******************--> 
-
-
-<div data-role="page">
-<div class="content" >
-
-	<div class="header">
-		<a href="#" class="deploy-nav header-icon"></a>
-		<a href="#" class="hide-nav header-icon-active"></a>
-		<h1 class="page-title">User Home Page</h1>
-	</div>
+<div data-role="page" id="userHome">
+	<div data-role="header" data-theme="b">
+		<a href="#" class="showMenu">Menu</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>User Home</h1>
+	</div><!-- /header -->
 	
 	<!--CONTENT OF HOME PAGE --> 
 	<div data-role="content">
-		<h1 class="center-text" style="font-size:2em;" id="orgDashName">Don't Know what you are looking for, Try Out The Random Button!</h1><br/>
+		<h1 class="center-text">Welcome <span class='userFN'></span>!</h1><br/>		
 		
-		<div class="decoration"></div>
-		
-		
-		<div class="random-detected">
-			<a data-role="none" class="button green" href="RandomEventPage.php"><img class="button-icon" src="images/icons/shuffle@2x.png"></img><em></em><strong>Random Button</strong></a>
-		</div>
-		
-		
-		<div class="decoration"></div>
-		
-		<div class="container">
-			<table data-role="none" class='table' id="eventsTable">
-				<tr data-role="none"><th data-role="none" class="topRow">
-					<h2 id="orgDashTitle">Upcoming Events:</h2>
+			<table data-role="none" id="recomendList">
+				<tr><th>
+				<h2 id="orgDashTitle">Check These Out!</h2>
 				</th></tr>
 				
 					<tr>
 					<td>
-						<form action='javascript:alert("get more events");'>
-						<p id="eventTableHd">Click Here to get more events....</p>
-						</form>
+						<p> </p>
 					</td>
 					</tr>
 			</table>
-			<!-- END OF TABLE --> 
+			<!-- END OF TABLE -->
+	</div><!-- /User Home Content -->
+</div><!-- /User Home Page -->
+
+
+<!--- ***************************************************
+					START OF ORG LIST PAGE
+	  ***************************************************-->
+
+<div data-role="page" id='orgList'>
+	<div data-role="header" data-theme="b">
+		<a href="#" class="showMenu">Menu</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>Organizations</h1>
+	</div><!-- /header -->
+	
+	<!--CONTENT OF HOME PAGE --> 
+	<div data-role="content">
+		<h1 class="center-text">Hey <span class='userFN'></span>, look at all these organizations</h1><br/>		
+		
+			<table data-role="none" id="orgList">
+				<tr><th>
+				<h2 id="orgDashTitle">Organizations:</h2>
+				</th></tr>
+				
+					<tr>
+					<td>
+						<p> </p>
+					</td>
+					</tr>
+			</table>
+			<!-- END OF TABLE -->
+	</div><!-- /Org list Content -->
+</div><!-- /Org List Page -->
+
+
+
+
+
+
+<!--- ***************************************************
+					START OF EVENT LIST PAGE
+	  ***************************************************-->
+
+<div data-role="page" id="eventsPage">
+	<div data-role="header" data-theme="b">
+		<a href="#" class="showMenu">Menu</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>Organizations</h1>
+	</div><!-- /header -->
+
+	
+	<!--CONTENT OF HOME PAGE --> 
+	<div data-role="content">
+		<h1 class="center-text">Events</h1><br/>		
+		
+			<table data-role="none" id="events">
+				<tr><th>
+				<h2 id="orgDashTitle">Upcoming Events:</h2>
+				</th></tr>
+				
+					<tr>
+					<td>
+						<p> </p>
+					</td>
+					</tr>
+			</table>
+			<!-- END OF TABLE -->
+	</div><!-- /Event List Content -->
+</div><!-- /Event List Page -->
+
+<!--- ***************************************************
+					START OF RANDOM EVENT PAGE
+	  ***************************************************-->
+
+
+<!--- ***************************************************
+					START OF ORG PAGE
+	  ***************************************************-->
+<div data-role="page" id="org">
+	<div data-role="header" data-theme="b">
+		<a href="#" data-rel="back">Back</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>Organization</h1>
+	</div><!-- /header -->
+
+<div data-role="content">
+		<img src="images/defaultProf.png" class="float">
+		<h1 class="eventInput"> Event Name</h1><br/>
+		<h2 class="eventInput"> Org name</h2>
+		<p class="eventInput"> Address </p> 
+
+		<div data-role='collapsible'>
+			<h1> type </h1>
+			<p class="eventInput">TYPE</p>
 		</div>
-		
-		
-		
-		
-	</div>
-	
-	
-	</div>
+
+		<div data-role='collapsible'>
+			<h1> Contact Information </h1>
+			<p class="eventInput">Contact Information</p>
+		</div>
+
+		<div data-role='collapsible'>
+			<h1> Summary </h1>
+			<p>Description</p>
+		</div>
+
+		<div data-role='collapsible'>
+			<h1> Requirments </h1>
+			<p></p>
+		</div>
+
+		<div data-role='collapsible'>
+			<h1> Responsibilities </h1>
+			<p></p>
+		</div>
 
 
-<!-- SIDE BAR --> 
-<div class="sidebar">
-	<div class="sidebar-hide-scroll" id="scrollMe">
-	<div class="sidebar-header">
-	<!-- Side Bar Title must change for every page --> 
-		<h1 class="sidebar-title">UserHome</h1>
-    </div>
-	
-    <p class="sidebar-divider no-top">
-    	NAVIGATION
-    </p>
-	
-    <a class="menu-item menu-icon home" href="userHome.html" data-ajax="false">HOME<em></em></a>
-	<a class="menu-item menu-icon home" href="orgList.html" data-ajax="false">ORGANIZATIONS<em></em></a>
-    <a class="menu-item menu-icon alert3" href="userEventList.php" data-ajax="false">EVENTS<strong></strong></a>
-    <a class="menu-item menu-icon mail last-menu-item" href="mailto:jp.ramirezpra@gmail.com">CONTACT<em></em></a>
-	
-	<!-- Social Media --> 
-    <p class="sidebar-divider">
-    	TELL A FRIEND
-    </p>
-	
-	
-    <a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
-    <a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
- 	
-	<!-- Note to user --> 
-    <p class="sidebar-divider">
-    	TAP THE CONTENT TO CLOSE
-    </p>
-    </div>
-</div>
+	</div><!-- /Event Content -->
+</div><!-- /Event Page -->
+
+
+<!--- ***************************************************
+					START OF EVENT PAGE
+	  ***************************************************-->
+<div data-role="page" id="event">
+	<div data-role="header" data-theme="b">
+		<a href="#" data-rel="back">Back</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>Event</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+			<img src="images/defaultProf.png" class="float">
+			<h1 class="eventInput"> Event Name</h1><br/>
+			<h2 class="eventInput"> Org name</h2>
+			<p class="eventInput"> Address </p> 
+
+		<div data-role='collapsible'>
+			<h1> type </h1>
+			<p class="eventInput">TYPE</p>
+		</div>
+
+		<div data-role='collapsible'>
+			<h1> Contact Information </h1>
+			<p class="eventInput">Contact Information</p>
+		</div>
+
+		<div data-role='collapsible'>
+			<h1> Summary </h1>
+			<p>Description</p>
+		</div>
+
+		<div data-role='collapsible'>
+			<h1> Requirments </h1>
+			<p></p>
+		</div>
+
+		<div data-role='collapsible'>
+			<h1> Responsibilities </h1>
+			<p></p>
+		</div>
+
+
+	</div><!-- /Event Content -->
+</div><!-- /Event Page -->
+
+
+
+
+
+
+<!--- **************************************************
+					SCRIPT SECTION
+	  ***************************************************-->
+
 <script language="javascript">
+var userfn = '';
+
+/*   ************  CODE FOR USER HOME PAGE  ********* 
+		*********************************************
+		**********************************************/ 
 
 
-$(popList());
+$('#userHome').live('pageinit', function(event){popList();});
 
 function popList(){
 
 $.post('userHomeEventList.php', function(text, status){
 			var b = text.split("<hr>");
-			console.log(b.length-1);
-			for(x=0; x<6; x++){
-				$('#eventsTable tr:last').before(b[x]);
+			userfn = b[0];
+			console.log(userfn);
+			$('.userFN').html(userfn);
+			for(x=1; x<6; x++){ // start at 1 because array at 0 is the users first name
+				$('#recomendList tr:last').before(b[x]);
 			}
 		});
 		
 
 setTimeout(function() {
-		$('td').click(function(){$(this).find('form').submit();});
-		$('a').removeClass('ui-link');
+		$('td').click(function(){
+			var event_id = $(this).find('div').html();
+			storeEventID(event_id);
+				$.mobile.changePage('#event');
+		})
 	}, 2000);
 }
 
+function storeEventID(event_id){
+	console.log(event_id);
+	$.get('storeEventID.php?event_id='+event_id);
+}	
 
-/*
+
+function storeOrgID(org_id){
+	console.log(org_id);
+	$.get('storeOrgID.php?org_id='+org_id);
+}			
 
 
 
+
+
+/*   ************  CODE FOR ORG LIST PAGE  ********* 
+	*************************************************
+	**************************************************/
+
+
+$('#orgList').live('pageinit', function(event){
+
+$.post('userOrgList.php', function(text, status){
+			var b = text.split("<hr>");
+			for(x=0; x<6; x++){
+				$('#orgList tr:last').before(b[x]);
+			}
+		});
 		
 
+setTimeout(function() {
+		$('.org').click(function(){
+			var org_id = $(this).find('div').html();
+			storeOrgID(org_id);
+				$.mobile.changePage('#org');
+		})
+	}, 2000);
 
 });
 
+/*   ************  CODE FOR EVENT LIST PAGE  *********
+	***************************************************
+	************************************************** */
+
+
+$('#eventsPage').live('pageinit', function(event){
+
+$.post('userHomeEventList.php', function(text, status){
+			var b = text.split("<hr>");
+			for(x=1; x<b.length; x++){
+				$('#events tr:last').before(b[x]);
+			}
+		});
 		
 
-			
-	*/				
+setTimeout(function() {
+		$('td').click(function(){
+			var event_id = $(this).find('div').html();
+			storeEventID(event_id);
+				$.mobile.changePage('#eventPage');
+		})
+	}, 2000);
+
+});
+
+
+
+
+
 					
-
 </script>
-	
-	
-</div>
-
 </body> 
 </html>

@@ -1,13 +1,13 @@
 <?php
 include('config.php');
 session_start();
-$user_check=$_SESSION['login_user'];
+$user_check=$_SESSION['user_id'];
 
-$ses_sql=mysql_query("select User_Email from Users where User_Email='$user_check' ");
+$ses_sql=mysql_query("select User_ID from Users where User_ID='$user_check'");
 
 $row=mysql_fetch_array($ses_sql);
 
-$login_session=$row['User_Email'];
+$login_session=$row['User_ID'];
 
 if(!isset($login_session))
 {

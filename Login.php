@@ -7,10 +7,11 @@
 		$myusername=$_POST['username'];
 		$mypassword=$_POST['password'];
 
-		$sql="SELECT User_ID FROM Users WHERE User_Email='$myusername' and User_Password='$mypassword'";
+		$sql="SELECT User_ID, User_FirstName FROM Users WHERE User_Email='$myusername' and User_Password='$mypassword'";
 		$result=mysql_query($sql);
 		$count=mysql_num_rows($result);
 		$myuserid=mysql_result($result, 0, "User_ID");
+		$myuserfn=mysql_result($result, 0, "User_FirstName");
 
 
 		// If result matched $myusername and $mypassword, table row must be 1 row
@@ -32,6 +33,7 @@
 				else
 				{
 					$_SESSION['user_id']=$myuserid;
+					$_SESSION['user_fn']=$myuserfn;
 					header("location: userHome.html");
 				}
 		}

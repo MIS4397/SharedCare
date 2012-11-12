@@ -12,7 +12,7 @@
 	$i=0;
 	while ($i < $num) //GETS CURRENT ROW IN TABLE AND MAKES SURE WE GO THROUGH ALL RECORDS
 	{
-		echo "<tr><td>";
+		echo "<tr><td class='event'>";
 		echo "<div hidden>".mysql_result($result,$i,"Event_ID")."</div>";
 		echo "<p id='eventDate'>".mysql_result($result,$i,"Event_Date")."</p>";
 		echo "<img src='images/defaultProf.png'></img>";

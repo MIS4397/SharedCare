@@ -181,7 +181,12 @@ table tr:hover td{
 
 /* EVENT TABLE FORMATTING */
 
-#eventList img{
+table img{
+	float: left;
+	height: 64px;
+	width: 64px;
+}
+#eventListFull img{
 	float: left;
 	height: 64px;
 	width: 64px;

@@ -1,10 +1,8 @@
 <?php
 	include("config.php");
+	include("orgLock.php");
 	session_start();
 	$myeventID = $_SESSION["event_id"];
-	
-	echo "hello";
-	
 	
 	$sql = "SELECT * FROM Events WHERE Event_ID = '$myeventID'";
 	$query = mysql_query($sql);

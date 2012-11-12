@@ -8,6 +8,5 @@
 	while($i < mysql_num_fields($query)){
 		echo mysql_result($query, 0, $i)."**";
 		$i++;
-		if($i == 10) return false;
 	}
 ?>

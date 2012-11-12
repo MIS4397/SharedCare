@@ -21,8 +21,15 @@
 </head> 
 
 <body>
+<div data-role="page" class="pages" >
+	<div data-role="header" data-theme="b">
+		<a href="#" class="showMenu">Menu</a>
+		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
+		<h1>&nbsp;&nbsp;DashBoard</h1>
+	</div><!-- /header -->
+	
 
-
+<div data-role="content">
 <table id="eventList">
 			<tbody><tr><th><h2> Your Upcoming Events: </h2></th></tr>
 			
@@ -59,6 +66,8 @@
 			</td>
 			</tr>
 		</tbody></table>
+	</div>
+</div> 
 
 		<script language='javascript'>
 			$('td').click(function(){
