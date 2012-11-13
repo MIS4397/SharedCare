@@ -2,162 +2,172 @@
 <! doctype html>
 <html>
 <head>
-<title>Add an Event</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 <!-- Apple Icon -->
-	<link rel="apple-touch-icon" size="114x114" href="images/splash-icon.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/splash/splash-icon.png">
 <!-- Loading Screen -->
-	<link rel="apple-touch-startup-image" href="images/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
-<!-- jQuery and jQuery mobile scripts --> 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-<!-- Additional Script and Styles -->
-	<script type="text/javascript" src="js/menuScript.js"></script>
-	<link rel="stylesheet" href="style/mainStyle.css"/>
-</head> 
-<body>
-<div id="menu">
-<h3>Edit Profile</h3>
-	<ul>
-		<li><a href="orgDash.html" class="contentLink"  data-ajax="false" >Home</a></li>
-		<li><a href="EditOrgProfile.html" class="contentLink"  data-ajax="false" >Edit Profile </a></li>
-		<li><a href="EventListPage.html" class="contentLink"  data-ajax="false" >Edit Events </a></li>
-		<li class="active" ><a href="#" class="contentLink"  data-ajax="false" >Add an Event </a></li>
-	</ul>
-</div><!-- /MENU -->
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+<!-- A Way to get people to download an App
+<meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
 
-<!-- PAGE -->
-<div data-role="page" id="addEvent" >
-<div data-role="header" data-theme="b">
-		<a href="#" class="showMenu" data-ajax="false">Menu</a>
-		<img src="images/LogoIcon.png" style="float:right; position:relative; top: 6px; right: 10px;"></img>
-		<h1>&nbsp;&nbsp;DashBoard</h1>
-</div><!-- /header -->
-	
-<!-- Content -->
-<div data-role="content" >
-	<div style="text-align: center;">
-			<img src="images/defaultProf.png">
-			<h2 id="orgDashNameAdd">Organization Dashboard</h2>
-			<h4 id="orgDashInfoAdd">Organization Address</h4>
+ 
+ <title>Organization Dashboard</title>
+<!-- jQuery Mobile CSS --> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<!-- Template Css -->
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="style/buttons.css" rel="stylesheet" type="text/css">
+<link href="style/photoswipe.css" rel="stylesheet" type="text/css">
+<link href="style/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" rel="stylesheet" />
+<link href="style/add2home.css" rel="stylesheet" type="text/css">
+ 
+ 
+<!-- jQuery and jQuery mobile scripts --> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<!-- template script -->
+<script src="scripts/klass.min.js"></script>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/touchSwipe.js"></script>
+<script src="scripts/photoswipe.js"></script>
+<script src="scripts/roundabout.js"></script>
+<script src="scripts/contact.js"></script>
+<script src="scripts/retina.js"></script>
+<script src="scripts/add2home.js"></script>
+<script src="scripts/custom.js"></script>
+
+</head> 
+
+
+
+
+<body onload="touchScroll('scrollMe');">
+
+
+<!--*************** Organization Org Dashboard Page **************-->
+<div data-role="page" id="orgDash" >
+<div class="content" id="PageContent">
+	<div class="header">
+		<a href="#" class="deploy-nav header-icon"></a>
+		<a href="#" class="hide-nav header-icon-active"></a>
+		<h1 class="page-title">Share Care</h1>
 	</div>
 	
-	<form action="AddEvent.php" method="post">
-		<div data-role="fieldcontain">
-			<label for="eventname">Name of Event:</label></br>
-			<input type="text" name="eventname" placeholder="ex. Beach Cleanup, Food Bank, etc."/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="evendate">Date of Event</label></br>
-				<input type="date" name="eventdate" placeholder="Date of Event"/><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventdesc">Description</label></br>
-				<input type="text" name="eventdesc" placeholder="Description"/><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventtype">Event Type</label></br>
-				<input type="text" name="eventtype" placeholder="Event Type"/><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventstart">Start Time</label></br>
-				<input type="time" name="eventstart" placeholder="Start Time"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="eventstop">End Time</label></br>
-				<input type="time" name="eventstop" placeholder="End Time"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for='contactname' >Contact Name :</label></br>
-				<input type="text" name="contactname"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="contactphone" >Contact Phone :</label></br>
-				<input type="text" name="contactphone"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="contactemail">Contact Email :</label></br>
-				<input type="email" name="contactemail"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="address">Address :</label></br>
-				<input type="text" name="address"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="city">City :</label></br>
-				<input type="text" name="city"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="state">State :</label></br>
-				<input type="text" name="state"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="zip">Zip :</label></br>
-				<input type="text" name="zip"/><br />
-		</div>
-		<div data-role="fieldcontain">
-				<label for="duties" >Duties :</label></br>
-				<textarea name="duties"></textarea><br/>
-		</div>
-		<div data-role="fieldcontain">
-				<label for="requirements" >Requirements :</label></br>
-				<textarea name="requirements"></textarea><br/>
-		</div>
-		<div data-role = "fieldcontain">
-			<input type="button" value="Add Event" onclick="addEvent()"><br />
-		</div>
-	</form>
+<!-- Org Dash Content -->
+<div data-role="content" >
+		<h1 class="center-text" style="font-size:2em;" id="orgDashName"> Organization Dashboard<br/>
+		</h1>
+		<p class="center-text" id="orgDashInfo"> This is the address </p>
+		<center><img src="defaultProf.png"></img></center>
+	
+		<div class="decoration"></div>
+		
+		
+<form data-ajax="false" id="editEventForm" name="addEvent" action="CreateEvent.php" method="post">
+<div data-role="fieldcontain">
+		<label for="eventname">Name of Event:</label></br>
+		<input type="text" name="eventname" placeholder="ex. Beach Cleanup, Food Bank, etc."/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for="evendate">Date of Event</label></br>
+		<input type="date" name="eventdate" placeholder="Date of Event"/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for="eventdesc">Description</label></br>
+		<input type="text" name="eventdesc" placeholder="Description"/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for="eventtype">Event Type</label></br>
+		<input type="text" name="eventtype" placeholder="Event Type"/><br/>
+</div>
+<div data-role="fieldcontain">
+		<label for="eventstart">Start Time</label></br>
+		<input type="time" name="eventstart" placeholder="Start Time"/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for="eventstop">End Time</label></br>
+		<input type="time" name="eventstop" placeholder="End Time"/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for='contactname' >Contact Name :</label></br>
+		<input type="text" name="contactname"/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for="contactphone" >Contact Phone :</label></br>
+		<input type="text" name="contactphone"/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for="contactemail">Contact Email :</label></br>
+		<input type="email" name="contactemail"/><br />
+</div>
+<div data-role="fieldcontain">
+		<label for="location">Location :</label></br>
+		<textarea name="location"></textarea><br/>
+</div>
+<div data-role="fieldcontain">
+		<label for="comments" >Comments :</label></br>
+		<textarea name="comments"></textarea><br/>
+</div>
+		<input type="submit" value="Submit"/><br />
+</form>
 
 
 </div>
 <!--- END OF CONTENT-->		
 </div>
 
-<div data-role="dialog" id="Success">
-	<div data-role="header">
-		<h1>Event Added</h1>
-	</div>
+<!-- Begining of SideBar for org Dash -->
+<div class="sidebar">
+	<div class="sidebar-hide-scroll" id="scrollMe">
+	<div class="sidebar-header">
+	<!-- Side Bar Title must change for every page --> 
+		<h1 class="sidebar-title">Organizations</h1>
+    </div>
 	
-	<div data-role="content">
-		<p> Your Event Has been Successfully Added</p>
-		<p><a href="orgDash.html" data-role="button" data-ajax="false">OK</a></p>
-	</div>
+    <p class="sidebar-divider no-top">
+    	Organization Menu
+    </p>
+	
+		<a class="menu-item menu-icon home" href="orgDash.html" data-ajax="false">HOME<em></em></a>
+		<a class="menu-item menu-icon alert3" id="sub-menu-one" href="EditOrgProfile.php" data-ajax="false">EDIT PROFILE<strong></strong></a>
+		<a class="menu-item menu-icon img" id="sub-menu-two" href="#">EDIT EVENTS<strong></strong></a>
+		<a class="menu-item menu-icon mail last-menu-item" href="addEvent.html">ADD AN EVENT<em></em></a>
 
+	
+	<!-- Social Media --> 
+    <p class="sidebar-divider">
+    	TELL A FRIEND
+    </p>
+	
+	
+		<a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
+		<a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
+ 	
+	<!-- Note to user --> 
+    <p class="sidebar-divider">
+    	TAP THE CONTENT TO CLOSE
+    </p>
+    </div>
 </div>
 
+
+
+
+</div>
+<!-- **************** End of Org Dashboard Page ************** --> 
 <script language="javascript">
 //This function is jQuery AJAX to get the Org Info from the Database
 
-$('#addEvent').live('pageinit', function(event){
+$(document).ready(
 	$.post('OrgDashboard.php', function(responseText, status){
 		var a = responseText.split("**");
 		console.log(a);
 		$("#orgDashName").html(a[1]);
-		$("#orgDashInfo").html(a[2]+"<br>"+a[3]+"<br>"+a[4]+", "+a[5]+" "+a[6]);
-	});
-});
+		$("#orgDashInfo").html(a[2]+"<br>"+a[3]);
+}));
 
 
-
-
-function addEvent(){
-	//Form Validation
-	
-	
-	//Form Submission
-	$.post('AddEvent.php', $('form').serialize() ,function(responseText, status){
-		if(responseText == "OK"){
-			window.location = "#Success";
-		}
-		else{
-			alert("Please Fill Out All required text Fields");
-		}
-	});
-}
 </script> 
 
 

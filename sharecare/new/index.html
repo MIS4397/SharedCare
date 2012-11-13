@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>ShareCare</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<!-- Apple Icon -->
+	<link rel="apple-touch-icon" sizes="114x114" href="images/splash-icon.png">
+<!-- Loading Screen -->
+	<link rel="apple-touch-startup-image" href="images/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+<!-- jQuery and jQuery mobile scripts --> 
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css"/>
+<!-- Additional Script and Styles -->
+	<script type="text/javascript" src="js/menuScript.js"></script>
+	<link rel="stylesheet" href="style/mainStyle.css"/>
+
+</head>
+
+<body>
+
+<div data-role="page" class="pages" id="home">
+	<div data-role="header" data-theme="b">
+		<img src="images/LogoIcon.png" style="float:left; position:relative; top: 6px; left: 20px;"></img>
+		<h1>ShareCare</h1>
+	</div><!-- /header -->
+
+	
+	<div data-role="content">
+		<div style="text-align: center;">
+			<!-- LogoText -->
+			<p class="center-text"><img src="images/sharecare.png" alt="img"></p>
+		<h4 class="center-text slider-heading-one">The Volunteer App</h4>
+	</div>
+		<p class="center-text">ShareCare is the fastest growing volunteer app in the nation! Log in or sign up today to get started with finding volunteer opportunities around you. Research Company, Research Events, review and comment, and connect with people that share your interest for caring!</p>
+
+		
+		<form id="chris" action="Login.php" method="post" data-ajax="false">
+			<label hidden>Email Address :</label>
+				<input type="text" name="username" placeholder="Email Address:"/><br />
+			<label hidden>Password :</label>
+				<input type="password" name="password" placeholder="Password:"/><br/>
+			<input type="submit" value="Log In"/><br />
+		</form>
+		
+			
+		<a href="signUp.html" data-role="button" data-theme="e" data-ajax="false"> Get Started Today!</a>
+		
+		
+		<!--CopyRight Code--> 
+		<p class="center-text copyright">Copyright 2012. All rights reserved</p>
+		
+
+</div>
+
+
+
+</body>
+</html>

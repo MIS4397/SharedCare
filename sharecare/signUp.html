@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Apple Icon -->
+<link rel="apple-touch-icon" sizes="114x114" href="images/splash/splash-icon.png">
+<!-- Loading Screen -->
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+<!-- A Way to get people to download an App
+<meta name="apple-itunes-app" content="app-id=284882215, app-argument=x-sfp:///visit/seal-rocks">-->
+
+ 
+<title>Sign Up</title>
+<!-- jQuery Mobile CSS --> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<!-- Template Css -->
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="style/buttons.css" rel="stylesheet" type="text/css">
+<link href="style/photoswipe.css" rel="stylesheet" type="text/css">
+<link href="style/retina.css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" rel="stylesheet" />
+<link href="style/add2home.css" rel="stylesheet" type="text/css">
+ 
+ 
+<!-- jQuery and jQuery mobile scripts --> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<!-- template script -->
+<script src="scripts/klass.min.js"></script>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/touchSwipe.js"></script>
+<script src="scripts/photoswipe.js"></script>
+<script src="scripts/roundabout.js"></script>
+<script src="scripts/contact.js"></script>
+<script src="scripts/retina.js"></script>
+<script src="scripts/add2home.js"></script>
+<script src="scripts/custom.js"></script>
+
+</head> 
+<body onload="touchScroll('scollMe');">
+
+
+<!-- ****************Start of SignUp Page ********************** -->
+<div data-role="page" id="signUpPage">
+<div class="content">
+<!--Header of the Sign Up Page -->
+<div class="header">
+	<a href="#" class="deploy-nav header-icon"></a>
+	<a href="#" class="hide-nav header-icon-active"></a>
+	<h1 class="page-title">Sign Up</h1>
+	<a href="#signUp" class="contact-icon header-icon-active"></a>
+</div>
+
+
+<!-- Content of the Sign Up Page -->
+<div data-role='content'>
+	<h2 class="center-text"> Sign Up Today! </h2>
+	
+	 <div class="decoration"></div>
+	 
+<!-- Sign up form-->
+	 <form data-ajax="false" action="SignUp.php" 	method="post">
+			<div data-role = "fieldcontain">
+				<input type="text" name="username" placeholder="Email:">
+			</div>
+			<div data-role = "fieldcontain">
+				<input type="text" name="first" placeholder="First Name:">
+			</div>
+			<div data-role = "fieldcontain">
+				<input type="text" name="last" placeholder="Last Name:">
+			</div>
+			<div data-role = "fieldcontain">
+				<input type="text" name="age" placeholder="Age:">
+			</div>
+			<div data-role="fieldcontain">
+				<input type="password" name="password1" placeholder="Enter a Password">
+			</div>
+			<div data-role="fieldcontain">
+				<input type="password" name="password2"  placeholder="Re-enter your password">
+			</div>
+			 
+			<div data-role="fieldcontain">
+				<label for="orgBool"> Are you an Organization:</label>
+				<select name="orgBool" id="orgBool" data-role="slider" onchange="$('#orgForm').toggle();" >
+					<option value="off">No</option>
+					<option value="on" selected>Yes</option>
+				</select>
+			</div>
+<!--RADIO ORG MEM SELECTION -->
+<div id='orgForm'> 			
+			
+<!-- Org Section of Sign up form -->
+
+			<div data-role="fieldcontain">
+				<input type="text" name="orgname"  placeholder="Organization Name">
+			</div>
+			
+			<div data-role="fieldcontain">
+				<input type="text" name="website"  placeholder="Website URL">
+			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="orgaddress" placeholder="Organization Address:"></textarea>
+			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="orgcity" placeholder="Organization City:"></textarea>
+			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="orgstate" placeholder="Organization State:"></textarea>
+			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="orgzip" placeholder="Organization Zip:"></textarea>
+			</div>
+			
+			<div data-role="fieldcontain">
+				<input type="text" name="contactname"  placeholder="Contact Name:">
+			</div>
+			
+			<div data-role="fieldcontain">
+				<input type="text" name="contactphone"  placeholder="Contact Phone Number:">
+			</div>
+			
+			<div data-role="fieldcontain">
+				<input type="text" name="contactemail"  placeholder="Contact Email:">
+			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="type" placeholder="Type"></textarea> 
+			</div>
+			
+			<div data-role="fieldcontain">
+				<textarea name="description" placeholder="Description"></textarea>
+			</div>
+			
+</div>
+
+			
+			
+			<!-- Place to enter the Error Messages, use jQuery to toggle --> 
+			<div class="notification-box-red" hidden>
+				<img class="notification-icon" width="16" src="images/lists/delete_32.png" alt="">
+				<p class="notification-text" id="errorMessage" >ErrorMessage</p>
+			</div>
+			
+			<div data-role = "fieldcontain">
+				<input type="submit" value="Sign Up Today!">
+			</div>
+	 </form>
+	 
+<!-- END OF FORM -->
+</div>
+</div>
+<!-- END OF PAGE CONTENT -->
+
+<!-- SIDE BAR OF SIGN UP PAGE--> 
+<div class="sidebar">
+	<div class="sidebar-hide-scroll" id="scrollMe">
+	<div class="sidebar-header">
+	<!-- Side Bar Title must change for every page --> 
+		<h1 class="sidebar-title">SignUp</h1>
+    </div>
+	
+    <p class="sidebar-divider no-top">
+    	NAVIGATION
+    </p>
+	
+		<a class="menu-item menu-icon home" href="index.html">HOME<em></em></a>
+		<a class="menu-item menu-icon alert3" id="sub-menu-one" href="feat.html">EVENTS<strong></strong></a>
+		<!-- Sub Menu --> 
+			<div class="sub-menu-one">
+				<a href="type.html" class="sub-menu-item">Randomize</a>
+			</div>
+		<a class="menu-item menu-icon img" id="sub-menu-two" href="#">ORGANIZATIONS<strong></strong></a>
+		<a class="menu-item menu-icon mail last-menu-item" href="contact.html">CONTACT<em></em></a>
+	
+	<!-- Social Media --> 
+    <p class="sidebar-divider">
+    	TELL A FRIEND
+    </p>
+	
+	
+		<a class="menu-item menu-icon facebook" target="_blank" href="http://www.facebook.com/enabled.labs">FACEBOOK PAGE</a>
+		<a class="menu-item menu-icon last-menu-item twitter" target="_blank" href="https://twitter.com/iEnabled">TWITTER PAGE</a>
+ 	
+	<!-- Note to user --> 
+    <p class="sidebar-divider">
+    	TAP THE CONTENT TO CLOSE
+    </p>
+    </div>
+</div> <!-- End of Sidebar -->
+</div>
+<!-- **********************END OF SIGN UP PAGE******************* --> 	
+
+
+
+
+
+</body>
+
+</html>
