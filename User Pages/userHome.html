@@ -25,7 +25,7 @@
 		<li class="active"><a href="#userHome" class="contentLink">Home</a></li>
 		<li><a href="#orgList" class="contentLink">Organizations</a></li>
 		<li><a href="#eventsPage" class="contentLink">Events</a></li>
-		<li><a href="#" class="contentLink" >Random Event</a></li>
+		<li><a href="javascript:randomGenerator()" class="contentLink" >Random Event</a></li>
 	</ul>
 </div>
 
@@ -91,11 +91,6 @@
 	</div><!-- /Org list Content -->
 </div><!-- /Org List Page -->
 
-
-
-
-
-
 <!--- ***************************************************
 					START OF EVENT LIST PAGE
 	  ***************************************************-->
@@ -144,18 +139,20 @@
 
 <div data-role="content">
 		<img src="images/defaultProf.png" class="float">
-		<h1 class="eventInput"> Event Name</h1><br/>
-		<h2 class="eventInput"> Org name</h2>
-		<p class="eventInput"> Address </p> 
+		<h1 class="orgInput"> Org Name</h1><br/>
+		<h2 class="orgInput"> Website name</h2>
+		<p><span class="orgInput"> Address</span></br>
+			<span class="orgInput"> City</span>, <span class="orgInput"> State</span> 
+		</p>
 
 		<div data-role='collapsible'>
-			<h1> type </h1>
-			<p class="eventInput">TYPE</p>
+			<h1> Type </h1>
+			<p class="orgInput">TYPE</p>
 		</div>
 
 		<div data-role='collapsible'>
 			<h1> Contact Information </h1>
-			<p class="eventInput">Contact Information</p>
+			<p class="orgInput">Contact Information</p>
 		</div>
 
 		<div data-role='collapsible'>
@@ -192,8 +189,14 @@
 			<img src="images/defaultProf.png" class="float">
 			<h1 class="eventInput"> Event Name</h1><br/>
 			<h2 class="eventInput"> Org name</h2>
-			<p class="eventInput"> Address </p> 
+			<p><span class="eventInput"> Address</span></br>
+				<span class="eventInput"> City</span>, <span class="eventInput"> State</span> 
+			</p> 
 
+		<div data-role='collapsible'>
+			<h1> Date </h1>
+			<p class="eventInput">date</p>
+		</div>
 		<div data-role='collapsible'>
 			<h1> type </h1>
 			<p class="eventInput">TYPE</p>
@@ -201,31 +204,29 @@
 
 		<div data-role='collapsible'>
 			<h1> Contact Information </h1>
-			<p class="eventInput">Contact Information</p>
+			<p class="eventInput">Contact Name</p>
+			<p class="eventInput">Contact Phone</p>
+			<p class="eventInput">Contact Email</p>
 		</div>
 
 		<div data-role='collapsible'>
 			<h1> Summary </h1>
-			<p>Description</p>
+			<p class="eventInput">Description</p>
 		</div>
 
 		<div data-role='collapsible'>
 			<h1> Requirments </h1>
-			<p></p>
+			<p class="eventInput"></p>
 		</div>
 
 		<div data-role='collapsible'>
 			<h1> Responsibilities </h1>
-			<p></p>
+			<p class="eventInput"></p>
 		</div>
 
 
 	</div><!-- /Event Content -->
 </div><!-- /Event Page -->
-
-
-
-
 
 
 <!--- **************************************************
@@ -276,9 +277,6 @@ function storeOrgID(org_id){
 }			
 
 
-
-
-
 /*   ************  CODE FOR ORG LIST PAGE  ********* 
 	*************************************************
 	**************************************************/
@@ -298,7 +296,7 @@ setTimeout(function() {
 		$('.org').click(function(){
 			var org_id = $(this).find('div').html();
 			storeOrgID(org_id);
-				$.mobile.changePage('#org');
+			$.mobile.changePage('#org');
 		})
 	}, 2000);
 
@@ -323,15 +321,51 @@ setTimeout(function() {
 		$('td').click(function(){
 			var event_id = $(this).find('div').html();
 			storeEventID(event_id);
-				$.mobile.changePage('#eventPage');
+			$.mobile.changePage('#event');
 		})
 	}, 2000);
 
 });
 
 
+/*   ************  CODE FOR ORG PAGE  *********
+	***************************************************
+	************************************************** */
+
+	$('#org').live('pageshow', function(event){
+		$.post('OrgPage.php', function(responseText, status){
+			values = responseText.split("**");
+			$('.orgInput').each(function(index){
+				console.log(values[index]);
+				$(this).html(values[index]);
+			});
+		});
+	});
 
 
+/*   ************  CODE FOR EVENT PAGE  *********
+	***************************************************
+	************************************************** */
+
+
+	$('#event').live('pageshow', function(event){
+		$.post('EventPage.php', function(responseText, status){
+			values = responseText.split("**");
+			$('.eventInput').each(function(index){
+				console.log(values[index]);
+				$(this).html(values[index]);
+			});
+		});
+	});
+
+
+/*   ************  CODE FOR RANDOM PAGE  *********
+	***************************************************
+	************************************************** */
+function randomGenerator(){
+	$.get('Random.php');
+	$.mobile.changePage('#event');
+}
 
 					
 </script>
