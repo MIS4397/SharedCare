@@ -4,7 +4,7 @@
 	session_start();
 	$myusername=$_SESSION['login_user'];
 	
-	$sql="SELECT * FROM Events WHERE Event_OrgID = '$org_id'";   //STILL NEEDS DATE LOGIC AND FEATURED LOGIC
+	$sql="SELECT * FROM Events WHERE Event_OrgID = '$org_id' AND Event_Date >= NOW()";   //STILL NEEDS DATE LOGIC AND FEATURED LOGIC
 	$result=mysql_query($sql);
 	
 	$num=mysql_numrows($result);//GRABS NUMBER OF ROWS
@@ -15,7 +15,7 @@
 		echo "<tr><td class='event'>";
 		echo "<div hidden>".mysql_result($result,$i,"Event_ID")."</div>";
 		echo "<p id='eventDate'>".mysql_result($result,$i,"Event_Date")."</p>";
-		echo "<img src='images/defaultProf.png'></img>";
+		echo "<img src='".mysql_result($result,$i,"Event_TypePicture")."'></img>";
 		echo "<p id='eventTD' style='font-size: 1.5em'>".mysql_result($result,$i,"Event_Name")."</p>";
 		echo "<p id='eventTD'>".mysql_result($result,$i,"Event_Description")."</p>";
 		echo "</td></tr><hr>";

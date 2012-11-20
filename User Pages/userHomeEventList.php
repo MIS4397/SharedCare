@@ -3,7 +3,7 @@
 	include("lock.php");
 	$myuserid=$_SESSION['login_user'];
 	
-	$sql="SELECT * FROM Events";   //STILL NEEDS DATE LOGIC AND FEATURED LOGIC
+	$sql="SELECT * FROM Events WHERE Event_Date >= NOW()";   //STILL NEEDS DATE LOGIC AND FEATURED LOGIC
 	$result=mysql_query($sql);
 	
 	$num=mysql_numrows($result);//GRABS NUMBER OF ROWS

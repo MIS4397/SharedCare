@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include("orgLock.php");
+	include("config.php");
 
 			// Event info from form is gathered here
 			$myeventname=addslashes($_POST['eventname']);
@@ -33,7 +34,30 @@
 						echo "This event already exists!";
 					}
 					else		//If not, insert into Events table
-					{	
+					{
+						/*switch($myeventtype){
+						case "Seniors":
+							$myeventtypepicture="images\\seniors.png";
+							break;
+						case "Animals":
+							$myeventtypepicture="images\\animal.png";
+							break;
+						case "Children":
+							$myeventtypepicture="images\\children.png";
+							break;
+						case "Community":
+							$myeventtypepicture="images\\community.png";
+							break;
+						case "Education":
+							$myeventtypepicture="images\\education.png";
+							break;
+						case "Health":
+							$myeventtypepicture="images\\health.png";
+							break;
+						default:
+							$myeventtypepicture="";
+						}*/
+						
 						$sql2="INSERT INTO Events (
 						Event_Name,
 						Event_OrgID,
