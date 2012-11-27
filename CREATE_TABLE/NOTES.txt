@@ -1,8 +1,0 @@
-NOTES REGARDING TABLE SETUP:
-Do we really want to deal with picture details in the DB? BLOB column types? Generic pics may be better for simple ID purposes.
-
-Do we need mission and description for org?
-
-Does org need a date?
-
-Not sure if correct foreign key syntax, will find out later....
